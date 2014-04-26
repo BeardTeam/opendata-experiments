@@ -1,0 +1,7 @@
+Discoteca
+Pub, Discopub
+Cocktail Bar
+Cocktail Bar, American Bar, Ristorante
+Cocktail Bar, Pizzeria, Ristorante, Panineria
+Wine Bar, Pub
+Wine Bar

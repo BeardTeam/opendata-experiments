@@ -1,0 +1,124 @@
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="divertimento_e_ristoro_-_timeline/d3-timeline/src/d3-timeline.js"></script>
+  
+  <style type="text/css">
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: black;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      font-family: sans-serif;
+      font-size: 10px;
+    }
+
+    .timeline-label {
+      font-family: sans-serif;
+      font-size: 12px;
+    }
+    
+    #timeline2 .axis {
+      transform: translate(0px,30px);
+      -ms-transform: translate(0px,30px); // IE 9
+      -webkit-transform: translate(0px,30px); // Safari and Chrome
+      -o-transform: translate(0px,30px); // Opera
+      -moz-transform: translate(0px,30px); // Firefox
+    }
+
+    .colored {
+      height:20px; width:20px; float:left;
+    }
+  </style>
+  
+  <script type="text/javascript">
+  
+    var jsonFile = "divertimento_e_ristoro_-_timeline/divertimento_e_ristoro_-_timeline.json";
+    
+    $.ajax({
+      url: jsonFile,
+      async: true,
+      dataType: 'json',
+      timeout: 10000,
+      success: visualize,
+      error: handleError
+      });
+    function handleError(data) {
+      if (data.readyState === 4 && data.status === 200 && data.statusText === "OK")
+	visualize(data.responseText);
+      else
+	console.error(data);
+    }
+    
+  
+    function visualize(data) {
+//       console.log( data );
+      var width = 500;
+      //					 purple,   pink,     light blue,  blue,  dark green, bordeaux, red
+      var colorScale = d3.scale.ordinal().range(['#ff00cc','#9900ff','#3399CC','#000033','#003300','#990000','#ff0000'])
+	  .domain(['Discoteca','Pub, Discopub','Cocktail Bar','Cocktail Bar, American Bar, Ristorante','Cocktail Bar, Pizzeria, Ristorante, Panineria','Wine Bar, Pub','Wine Bar']);
+	  
+      var x = d3.time.scale()
+	.domain([new Date(2012, 0, 1, 0), new Date(2012, 0, 2, 6)])
+	.range([0, width]);
+	
+      var xAxis = d3.svg.axis()
+	.scale(x)
+	.orient("bottom")
+	.tickFormat(d3.time.format("%H"));
+
+      var chart = d3
+// 	.time.scale(d3.time.minute, 30)
+	.timeline()	
+	  .colors( colorScale )
+	  .colorProperty('tipi-specifici')
+	  .width(width*4)
+          .stack()
+          .margin({left:70, right:30, top:0, bottom:0})
+          .tickFormat( // 
+            {format: d3.time.format("%H:%M"), 
+            tickTime: d3.time.hours,
+            tickInterval: 1,
+            tickSize: 6})
+          .hover(function (d, i, datum) {
+          // d is the current rendering object
+          // i is the index during d3 rendering
+          // datum is the id object
+            var div = $('#hover');
+            var colors = chart.colors();
+            div.find('.colored').css('background-color', colors(i));
+            div.find('#name').text(datum.label);
+          })
+          .scroll(function (x, scale) {
+            $("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
+          })
+          .click(function (d, i, datum) {
+            alert(datum.label);
+          });
+
+      var svg = d3.select("#out").append("svg")
+	.attr("width", width)
+	.datum(data).call(chart);
+    }
+  </script>
+  
+</head>
+<body>
+
+  <div>
+    <h3>A timeline with relative timepoints</h3>
+    <div width="100%" id="out"></div>
+    <div width="100%" id="xaxis"></div>
+    <div id="hover">
+      <div class="colored"></div>
+      <div id="name"></div>
+      <div id="scrolled_date"></div>
+    </div>
+  </div>
+  </div>
+</body>
+</html>

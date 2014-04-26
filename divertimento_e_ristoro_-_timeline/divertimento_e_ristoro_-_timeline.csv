@@ -1,0 +1,83 @@
+id,nome,indirizzo,numero-civico,cap,quartiere,citta,geolocazione,telefono,fax,mobile,email,web,tipi,tipi-specifici,apertura,chiusura
+390,Tonnara Florio (Kursal Tonnara Vergine Maria),Discesa Tonnara,4,90142, , Palermo,"38.151101,13.374156",091/6375611,,,discoteca@tonnaraflorio.com,http://www.tonnaraflorio.com/discoteca.htm,divertimento,Discoteca,19.00,1.00
+358,Country Disco Club,Viale dell'Olimpo,3,90149, , Palermo,"38.1890353,13.318663799999999",091/304977,,,robertobianconi@inwind.it,http://www.countrydiscoclub.com,divertimento,Discoteca,22.30,3.00
+417,Magazzini,Via Cristoforo Colombo,132,90142, , Palermo,"38.136694800000001,13.367648300000001",,,,,,divertimento,Discoteca,,
+339,Rise up,Via La Malfa Ugo,96,90146, , Palermo,"38.162792099999997,13.3136908",,,3388137792 - 3470541647,,,divertimento,Discoteca,22.30,3.00
+523,Baia del Corallo,Via Plauto, ,90147, Sferracavallo, Palermo,"38.200101799999999,13.266431000000001",,,330851289,,,divertimento,Discoteca,21.00,0.00
+311,Casa Cuba,Via Messina Marine,636,90121, , Palermo,"38.097258799999999,13.419143500000001",091/495153,,,,,divertimento,Discoteca,,
+351,Scalea Club,Via Faraone,2,90147, Sferracavallo, Palermo,"38.178372099999997,13.307839100000001",091/243946,,3313153269,princessscalea@tin.it,http://www.scaleaclub.com,divertimento,Discoteca,23.00,2.00
+361,Villa Partanna,Via Castelforte,126,90146, , Palermo,"38.188386000000001,13.322380799999999",091/6841594,,3296212634,villapartanna@gmail.com,,divertimento,Discoteca,16.00,1.30
+354,Goa,Via P.v.,46,90146, , Palermo,"38.1814435,13.3190799",330851289,,3284180075 - 3933306697,dan.bar@tin.it,http://www.goazone.it,divertimento,Discoteca,22.30,3.00
+373,Fusorario,Via Bara All'Olivella,2,90133, , Palermo,"38.121394600000002,13.3622687",,,,,,"divertimento, ristoro","Pub, Discopub",21.00,4.00
+402,Le Cupolette,Via Monteleone,12,90133, , Palermo,"38.119440699999998,13.361439600000001",091/6572922,,,,,"divertimento, ristoro","Pub, Discopub",21.00,3.00
+327,Di Martino Drinks & Brunch,Via Giuseppe Mazzini,54,90139, , Palermo,"38.127628299999998,13.355413799999999",091/6118820,,,,,"divertimento, ristoro","Pub, Discopub",8.00,2.00
+337,Cafè 442,Piazza San Giovanni Bosco,1,90143, , Palermo,"38.144855999999997,13.3461509",091/549431,,,,http://www.cafe442.it,"divertimento, ristoro","Pub, Discopub",,
+344,Basquiat Cafè,Via S. Oliva,20,90141, , Palermo,"38.121995400000003,13.353139199999999",091/6090090,,,basquiatcafe@libero.it,http://www.basquiatcafe.altervista.org,"divertimento, ristoro","Pub, Discopub",19.00,2.00
+412,Lizard Pub,Via Lattarini Grande,22,90133, , Palermo,"38.115742999999988,13.3645915",,,,info@lizardpub.com,http://www.lizardpub.com,"divertimento, ristoro","Pub, Discopub",,
+292,Aboriginal Cafè,Via Salvatore Spinuzza,3,90133, , Palermo,"38.121583999999999,13.3607318",091/6622229,,,info@aboriginalcafe.com,http://www.aboriginalcafe.com,"divertimento, ristoro","Pub, Discopub",18.00,3.00
+383,Jackass,Via Sammartino,117,90141, , Palermo,"38.1283271,13.347989500000001",091/6261221,,,jackass@ristorantiitaliani.it,http://www.ristorantiitaliani.it/jackass,"divertimento, ristoro","Pub, Discopub",18.00,2.00
+394,Kovacs,Via Della Libertà,6,90141, , Palermo,"38.125240300000002,13.3549378",091/6115151,,,,,"divertimento, ristoro","Pub, Discopub",19.00,1.30
+415,Lulu Pub,Via San Basilio,37,90133, , Palermo,"38.119047299999998,13.360661500000001",,,3282766812 - 3491936985,pasquale.dipollina@libero.it,,"divertimento, ristoro","Pub, Discopub",20.00,2.00
+294,Ai bastioni,Via Papireto,74,90134, , Palermo,"38.117065400000001,13.351615300000001",,,,,,"divertimento, ristoro","Pub, Discopub",19.00,2.00
+313,CCP Agricantus Pub,Via XX Settembre,82,90141, , Palermo,"38.129838499999998,13.3504997",091/309636,,,francesca@agricantus.org,http://www.agricantus.org,"divertimento, ristoro","Pub, Discopub",20.00,1.30
+315,Chatoull'S Bistrot,Via Giuseppe Mazzini,1,90139, , Palermo,"38.127165099999999,13.3542588",,,,,,"divertimento, ristoro","Pub, Discopub",18.00,3.00
+330,Easy Malox,Piazzetta della Canna,41860,90134, , Palermo,"38.115818,13.358948",,,,,,"divertimento, ristoro","Pub, Discopub",,
+291,A scalunata,Discesa Santa Marina,3,90134, , Palermo,"38.117027,13.359701",,,,,,"divertimento, ristoro","Pub, Discopub",,
+305,Bisogno di vino,Via Giacalone,2,90133, , Palermo,"38.119744099999998,13.358872699999999",,,349 2821326,,,"divertimento, ristoro","Pub, Discopub",,
+371,Exit,Piazza San Francesco di Paola,40,90138, , Palermo,"38.121480599999998,13.353048599999999",,,3487814698,info@exitdrinks.com,http://www.exitdrinks.com,"divertimento, ristoro","Pub, Discopub",22.00,3.00
+307,Cafè Moma,Via Gioacchino di Marzo,61,90144, , Palermo,"38.132823500000001,13.343850399999999",091/7829603,,,,,"divertimento, ristoro","Pub, Discopub",,
+356,I Candelai,Via dei Candelai,65,90134, , Palermo,"38.116834099999998,13.3593662",091/327151,091/27151,3337002942,candelai@candelai.it,http://www.candelai.it,"divertimento, ristoro","Pub, Discopub",21.00,3.00
+367,Officina Di Dio,Via Bertolino Giuseppe Puglisi,25,90139, , Palermo,"38.126645099999998,13.3572974",,,3346947185,ohmiodio@virgilio.it,,"divertimento, ristoro","Pub, Discopub",18.00,1.00
+368,Birreria Warsteiner,Via Giuseppe Sciuti, 79F,90144, , Palermo,"38.136711400000003,13.3408585",091/6268129,,,,,"divertimento, ristoro","Pub, Discopub",19.00,3.00
+375,Gentleman Loser,Piazza Ungheria,33,90141, , Palermo,"38.1217234,13.355614599999999",091/320436,,,,,"divertimento, ristoro","Pub, Discopub",,
+376,Hirsch,Via Damiani Almeyda,32,90141, , Palermo,"38.130570599999999,13.345066299999999",091/47825,,,totoadamo@live.it,,"divertimento, ristoro","Pub, Discopub",18.00,3.00
+379,Il Moro,Via Pottino Monsignore Filippo,3,90142, , Palermo,"38.156785,13.370836",091/546213 - 091/364990,,,,,"divertimento, ristoro","Pub, Discopub",21.00,4.00
+293,Abu Nawas,Via Bara All'Olivella,18,90133, , Palermo,"38.121192500000006,13.3613672",091/328861,,,,,"divertimento, ristoro","Pub, Discopub",,
+348,Santa Monica,Via Enrico Parisi,7,90141, , Palermo,"38.126442300000001,13.3535384",091/324735,,,,,"divertimento, ristoro","Pub, Discopub",12.30,2.30
+369,I Grilli Giù,Largo Cavalieri di Malta,11,90133, , Palermo,"38.120254099999997,13.3641217",091/6111243,,3288284265,giuseppemaranzano@yahoo.it,,"divertimento, ristoro","Pub, Discopub",19.30,2.00
+424,Malaluna Club,Viale della Resurrezione,80,90146, , Palermo,"38.168359500000001,13.3217923",,,335460022,malaluna@malaluna.it,http://www.malaluna.it,"divertimento, ristoro","Pub, Discopub",22.00,3.00
+427,Malavoglia,Piazzetta Pietro Speciale,5,90134, , Palermo,"38.113952,13.359755",091/334619,,,caffemalavoglia@hotmail.com,,"divertimento, ristoro","Pub, Discopub",16.00,2.00
+434,Mescal Tapas,Via dei Candelai,75,90134, , Palermo,"38.116581400000001,13.3584093",,,,,,"divertimento, ristoro","Pub, Discopub",19.30,3.00
+451,Pata Palo da Ignazio,Piazza Giovanni Borgese,3,90133, , Palermo,"38.1193332,13.359674",,,3928649024,,,"divertimento, ristoro","Pub, Discopub",19.00,2.00
+518,Luppolo - L'Ottavo Nano,Via Daniele Manin,36,90139, , Palermo,"38.129817899999999,13.352996900000001",091/6123877,,,,http://www.lottavonano.it/,"divertimento, ristoro","Pub, Discopub",18.00,1.30
+519,Taverna dell'artista,Via Principe di Belmonte,45,90139, , Palermo,"38.124874599999998,13.3596004",,,,press@kronoseventi.it,,"divertimento, ristoro","Pub, Discopub",18.30,1.00
+520,Nashville,Via Belgio,4,90146, , Palermo,"38.1511183,13.3300255",091/519846,,,bru46@msn.com,http://www.nashvillepub.it/,"divertimento, ristoro","Pub, Discopub",19.00,1.30
+514,Mikalsa,Via Torremuzza,27,90133, , Palermo,"38.116197,13.372803899999999",,,3489732254,info@mikalsa.it,http://www.mikalsa.it/,"divertimento, ristoro","Pub, Discopub",20.30,2.00
+500,Villa Niscemi Pub,Piazza Niscemi,55,90146, , Palermo,"38.1624725,13.331958",091/6880820,,,info@villaniscemipub.it,http://www.villaniscemipub.it/,"divertimento, ristoro","Pub, Discopub",18.30,2.30
+506,Zsa Zsa Mon Amour,Via Filippo Angelitti,2,90145, , Palermo,"38.129861300000002,13.3357268",091/6817516,,,info@zsazsamonamour.com,http://www.zsazsamonamour.com/,"divertimento, ristoro","Pub, Discopub",21.30,3.00
+498,Taco Loco,Via Campolo Giovanni, 25-36,90145, , Palermo,"38.128436999999998,13.336546",091/6823663,091/6823663,,tacoloco@tacoloco.it,http://www.tacoloco.it,"divertimento, ristoro","Pub, Discopub",19.00,3.00
+372,Fashion Club,Via Restivo Empedocle,106,90144, , Palermo,"38.1460261,13.334834900000001",091/517825,,,fashion106pa@libero.it,,"divertimento, ristoro",Cocktail bar,19.30,2.00
+454,Jumeirah,Via Ludovico Ariosto,32,90144, , Palermo,"38.134356199999999,13.3457697",091/625 4071,,,info@jumeirahpalermo.it,http://www.jumeirahpalermo.it,"divertimento, ristoro","Cocktail Bar, American Bar, Ristorante",,
+346,Rocket Bar,Piazza San Francesco di Paola,42,90138, , Palermo,"38.121465700000002,13.353148600000001",,,,rocket-bar@hotmail.it,,"divertimento, ristoro",Cocktail bar,18.30,3.00
+448,Mood (ex Tina Pica),Via Giovanni Meli,13,90133, , Palermo,"38.119401500000002,13.365435099999999",091/6123934,,,info@tinapica.it,,"divertimento, ristoro",Cocktail bar,20.00,2.00
+297,Il Siciliano,Via Orologio,37,90133, , Palermo,"38.120475,13.359739",,,,,http://www.ilsiciliano.eu,"divertimento, ristoro",Cocktail bar,18.00,2.00
+298,Al Viale American Bar,Via Archimede,189,90139, , Palermo,"38.1284797,13.354020999999999",091/6090133,,,,,"divertimento, ristoro",Cocktail bar,10.00,3.00
+304,Berlin Cafè,Via Isidoro la Lumia,21,90139, , Palermo,"38.127246300000003,13.3560984",091/334398 - 091/584897,,,,,"divertimento, ristoro",Cocktail bar,19.00,3.00
+332,Drunks,Via Cagliari,14,90133, , Palermo,"38.114600199999998,13.365069099999999",,,3204115312,alcronic@hotmail.it,,"divertimento, ristoro",Cocktail bar,19.00,2.00
+316,Cortile Patania,Via Giuseppe Patania,34,90133, , Palermo,"38.119403699999999,13.3601364",091/7434772,,,,,"divertimento, ristoro",Cocktail bar,17.00,3.00
+408,Litania,Via del Celso,69,90134, , Palermo,"38.116165299999999,13.357512699999999",,,,,,"divertimento, ristoro",Cocktail bar,20.00,2.30
+410,Lizard,Via Pietro Paolo Rubens,5,90145, , Palermo,"38.131958300000001,13.3359177",091/6813948,,3929697942,info@lizardpalermo.net,http://www.lizardpalermo.com/,"divertimento, ristoro",Cocktail bar,19.00,3.00
+430,Cotton Club Cafè,Piazza Castelnuovo,35,90141, , Palermo,"38.123979899999988,13.3543591",091/31246 - 091588063,,,info@cottonclubcafe.it,http://www.cottonclublounge.com/,"divertimento, ristoro",Cocktail bar,7.00,2.00
+450,Oceania,Via Giotto,45,90145, , Palermo,"38.130815299999988,13.3332634",091/6816966,,,oceaniaristorazione@ristorantiitaliani.it,http://www.oceaniaristorazione.it,"divertimento, ristoro","Cocktail Bar, Pizzeria, Ristorante, Panineria",6.30,2.00
+453,Zammù,Piazza della Rivoluzione, 34-35,90133, , Palermo,"38.114146,13.366549",,,,,,"divertimento, ristoro",Cocktail bar,19.00,3.00
+503,Vinile,Via Selinunte,7,90141, , Palermo,"38.124147600000001,13.3476613",,,,,https://it.foursquare.com/v/vinile/4d93755ef10ea09322fc291e,"divertimento, ristoro",Cocktail bar,19.00,"02.00, da lunedi a sabato"
+522,Bukowski,Via Piccola Teatro Santa Cecilia,22,90133, , Palermo,"38.114343900000001,13.3656145",,,,,,"divertimento, ristoro",Cocktail bar,20.00,3.00
+510,Phi Beach,Lungomare Cristoforo Colombo,2351,90149, Addaura, Palermo,"38.191230400000002,13.344471499999999",091/6849217,,3296999079,,,"divertimento, ristoro",Cocktail bar,9.00,2.00
+493,Shamrock Cafè,Viale Campania,44,90144, , Palermo,"38.145046700000002,13.3392926",091/511319,,,,,"divertimento, ristoro",Cocktail bar,19.30,1.30
+524,Vespa Cafè,Via Orologio,38,90133, , Palermo,"38.120475,13.359739",,,,,http://www.vespacafepalermo.it/,"divertimento, ristoro",Cocktail bar,10.00,2.00
+400,La Champagneria Del Massimo,Via Salvatore Spinuzza,59,90133, , Palermo,"38.121139999999997,13.3589764",091/335730,,3478050080,,,"divertimento, ristoro",Wine bar,9.00,3.00
+401,L'Aperitivo,Via Giuseppe Giusti,34,90144, , Palermo,"38.137057300000002,13.3438143",091/301125,,,,,"divertimento, ristoro",Wine bar,18.30,2.00
+295,Ai chiavettieri,Via Chiavettieri,18,90133, , Palermo,"38.117956900000003,13.3664731",091/328926,,,,,"divertimento, ristoro",Wine bar,19.00,1.30
+303,Enoteca Arcilesi,Via Toselli Pietro Maggiore, 125-127,90143, , Palermo,"38.139353999999997,13.3504887",091/301679,,,butybuty@libero.it,,"divertimento, ristoro",Wine bar,17.00,1.00
+384,Jazz'N Chocolate,Via Giacalone,29,90133, , Palermo,"38.119913500000003,13.359428299999999",,,3298160376,,,"divertimento, ristoro",Wine bar,19.00,2.00
+385,Kursaal Kalhesa,Foro Italico Umberto I,1,90133, , Palermo,"38.118605100000003,13.372231899999999",091/6162111 - 091/6167630,,,info@kursaalkalhesa.it,http://www.kursaalkalhesa.it,"divertimento, ristoro",Wine bar,12.00,1.30
+452,Cavù,Piazza della Rivoluzione,1,90133, , Palermo,"38.114146,13.366549",,,3292920789 - 3807922591,,,"divertimento, ristoro",Wine bar,18.30,3.00
+314,Centro Cha,Via Velasquez,34,90141, , Palermo,"38.122377899999996,13.354113399999999",091/580127,,,centrocha@libero.it,,"divertimento, ristoro",Wine bar,17.00,1.30
+324,La Cuba,Viale Francesco Scaduto,2,90144, , Palermo,"38.137440400000003,13.3428247",091/309201,091/6257168,,info@lacuba.com,http://www.lacuba.com,"divertimento, ristoro","Wine Bar, pub",19.00,2.00
+335,Noga Wine Bar,Via Chiavettieri,17,90133, , Palermo,"38.117974599999997,13.3665106",,,,,,"divertimento, ristoro",Wine bar,,
+343,Robinson Vini,Via Ludovico Ariosto,11,90144, , Palermo,"38.134834300000001,13.346843399999999",091/6252014,,,,,"divertimento, ristoro",Wine bar,19.00,2.00
+370,Hub,Via della Libertà,84,90143, , Palermo,"38.139188900000001,13.345974999999999",091/304977,,,relazioniesterne.hub@gmail.com,http://www.hubpalermo.com,"divertimento, ristoro",Wine bar,19.00,3.00
+374,Gatto Nero,Via Rua Formaggi,15,90134, , Palermo,"38.112688200000001,13.3602834",,,3403452222,gattoneropub@hotmail.it,,"divertimento, ristoro",Wine bar,19.30,2.00
+404,Lord Green,Via Enrico Parisi, 30A,90141, , Palermo,"38.126140100000001,13.3526794",091/6110194,,,mortillaro@neomedia.it,,"divertimento, ristoro",Wine bar,18.30,3.00
+439,Mi manda Picone,Via Alessandro Paternostro,59,90133, , Palermo,"38.116145600000003,13.3662961",091/6160660,,,,,"divertimento, ristoro",Wine bar,19.00,
+525,Rendez Vous,Via Castrofilippo,24,90133, , Palermo,"38.114428400000001,13.368817999999999",,,3498111189 - 3201171828,davidgraviano@hotmail.it,http://www.rendezvouspalermo.com/,"divertimento, ristoro",Wine bar,19.30,1.00
