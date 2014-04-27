@@ -1,124 +1,191 @@
 <html>
 <head>
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <script src="divertimento_e_ristoro_-_timeline/d3-timeline/src/d3-timeline.js"></script>
-  
-  <style type="text/css">
-    .axis path,
-    .axis line {
-      fill: none;
-      stroke: black;
-      shape-rendering: crispEdges;
-    }
-
-    .axis text {
-      font-family: sans-serif;
-      font-size: 10px;
-    }
-
-    .timeline-label {
-      font-family: sans-serif;
-      font-size: 12px;
-    }
-    
-    #timeline2 .axis {
-      transform: translate(0px,30px);
-      -ms-transform: translate(0px,30px); // IE 9
-      -webkit-transform: translate(0px,30px); // Safari and Chrome
-      -o-transform: translate(0px,30px); // Opera
-      -moz-transform: translate(0px,30px); // Firefox
-    }
-
-    .colored {
-      height:20px; width:20px; float:left;
-    }
-  </style>
-  
-  <script type="text/javascript">
-  
-    var jsonFile = "divertimento_e_ristoro_-_timeline/divertimento_e_ristoro_-_timeline.json";
-    
-    $.ajax({
-      url: jsonFile,
-      async: true,
-      dataType: 'json',
-      timeout: 10000,
-      success: visualize,
-      error: handleError
-      });
-    function handleError(data) {
-      if (data.readyState === 4 && data.status === 200 && data.statusText === "OK")
-	visualize(data.responseText);
-      else
-	console.error(data);
-    }
-    
-  
-    function visualize(data) {
-//       console.log( data );
-      var width = 500;
-      //					 purple,   pink,     light blue,  blue,  dark green, bordeaux, red
-      var colorScale = d3.scale.ordinal().range(['#ff00cc','#9900ff','#3399CC','#000033','#003300','#990000','#ff0000'])
-	  .domain(['Discoteca','Pub, Discopub','Cocktail Bar','Cocktail Bar, American Bar, Ristorante','Cocktail Bar, Pizzeria, Ristorante, Panineria','Wine Bar, Pub','Wine Bar']);
-	  
-      var x = d3.time.scale()
-	.domain([new Date(2012, 0, 1, 0), new Date(2012, 0, 2, 6)])
-	.range([0, width]);
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="divertimento_e_ristoro_-_timeline/d3-timeline/lib/d3.js" charset="utf-8"></script>
+	<script src="divertimento_e_ristoro_-_timeline/d3-timeline/src/d3-timeline.js"></script>
 	
-      var xAxis = d3.svg.axis()
-	.scale(x)
-	.orient("bottom")
-	.tickFormat(d3.time.format("%H"));
+	<!-- 	to be included always - start -->
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+	<link rel="stylesheet" href="css/side-menu.css"></link>
+	<!-- 	to be included always - end -->
 
-      var chart = d3
-// 	.time.scale(d3.time.minute, 30)
-	.timeline()	
-	  .colors( colorScale )
-	  .colorProperty('tipi-specifici')
-	  .width(width*4)
-          .stack()
-          .margin({left:70, right:30, top:0, bottom:0})
-          .tickFormat( // 
-            {format: d3.time.format("%H:%M"), 
-            tickTime: d3.time.hours,
-            tickInterval: 1,
-            tickSize: 6})
-          .hover(function (d, i, datum) {
-          // d is the current rendering object
-          // i is the index during d3 rendering
-          // datum is the id object
-            var div = $('#hover');
-            var colors = chart.colors();
-            div.find('.colored').css('background-color', colors(i));
-            div.find('#name').text(datum.label);
-          })
-          .scroll(function (x, scale) {
-            $("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
-          })
-          .click(function (d, i, datum) {
-            alert(datum.label);
-          });
+	<style type="text/css">
+		.axis path,
+		.axis line {
+			fill: none;
+			stroke: black;
+			shape-rendering: crispEdges;
+		}
+		.axis text {
+			font-family: sans-serif;
+			font-size: 10px;
+		}
+		.timeline-label {
+			font-family: sans-serif;
+			font-size: 12px;
+		}
+		#out .axis {
+			transform: translate(0px,30px);
+			-ms-transform: translate(0px,30px); // IE 9
+			-webkit-transform: translate(0px,30px); // Safari and Chrome
+			-o-transform: translate(0px,30px); // Opera
+			-moz-transform: translate(0px,30px); // Firefox
+		}
+		.colored {
+			height:20px; width:20px; float:left;
+		}
+		#map-canvas {
+			margin: 2em 0 0 2em;
+			width : 500px; 	/* map width */
+			height: 500px;	/* map height */
+		}
+	</style>
 
-      var svg = d3.select("#out").append("svg")
-	.attr("width", width)
-	.datum(data).call(chart);
-    }
-  </script>
-  
+	<script type="text/javascript">
+	
+		// "jsonFile" name is by convention
+		var jsonFile = "divertimento_e_ristoro_-_timeline/divertimento_e_ristoro_-_timeline__epoched.json";
+
+		// "visualize(data)" function signature is by convention
+		function visualize(data) {
+		var width = 500;
+		
+		var colorScale = d3.scale.ordinal()
+			//					 purple,   pink,     light blue,  		blue,  		dark green, bordeaux, red
+			.range(['#ff00cc','#9900ff','#3399CC','#000033','#009900','#990000','#ff0000'])
+			.domain(["Discoteca","DiscoPub","Cocktail","American","Panineria","Pub","Wine"]);
+
+		var chart = d3
+			.timeline()	
+			.colors( colorScale )
+			.colorProperty('tipi-specifici')
+			.width(width*2)
+			.stack()
+			.margin({left:120, right:10, top:0, bottom:0})
+			.tickFormat( // 
+				{	format: d3.time.format("%H"), 
+					tickTime: d3.time.hours,
+					tickInterval: 1,
+					tickSize: 6})
+			.hover(function (d, i, datum) {
+				var div = $('#hover');
+				var colors = chart.colors();
+				div.find('.colored').css('background-color', colors(i));
+				div.find('#name').text(datum.label);
+			})
+			.scroll(function (x, scale) {
+				$("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
+			})
+			.click(function (d, i, datum) {
+				var title = datum.label;
+				var address = datum.indirizzo+" "+datum['numero-civico'];
+				var latlngArray = datum.geolocazione.split(",");
+				var lat = latlngArray[0];
+				var lng = latlngArray[1];
+				var latlng = new google.maps.LatLng(lat,lng);
+				setMarker(latlng, title, address);
+			});
+
+		var svg = d3.select("#out").append("svg")
+			.attr("width", width*3)
+			.datum(data).call(chart);
+		}
+	</script>
+
 </head>
 <body>
 
-  <div>
-    <h3>A timeline with relative timepoints</h3>
-    <div width="100%" id="out"></div>
-    <div width="100%" id="xaxis"></div>
-    <div id="hover">
-      <div class="colored"></div>
-      <div id="name"></div>
-      <div id="scrolled_date"></div>
-    </div>
+<!-- 	to be included always - start -->
+	<div id="layout">
+		<div id="menu">
+			<a href="#menu" id="menuLink" class="menu-link">
+	        	<span></span>
+			</a>
+        	<div class="pure-menu pure-menu-open">
+            <a class="pure-menu-heading" href="#">Company</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li class="menu-item-divided pure-menu-selected">
+                    <a href="#">Services</a>
+                </li>
+            </ul>
+        </div>
+    	</div>
+		<div id="main">
+			<div class="header">
+				<h1>PalerMobile using d3</h1>
+		    	<h3>An interactive timeline</h3>
+    		</div>
+    		<div class="content">
+<!-- 	to be included always - end -->
+				<div id="core">
+					<div id="out"></div>
+					<div id="hover">
+						<div class="colored"></div>
+						<div id="name"></div>
+						<div id="scrolled_date"></div>      
+						</div>
+						<div id="map-canvas"></div>
+					</div>
+<!-- 	to be included always - start -->
+				</div>
+			</div>
   </div>
-  </div>
+<!-- 	to be included always - end -->
+  
+	<script type="text/javascript" src="libs/ajaxJsonLoader.js"></script>
+  
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>	<!-- Google Maps API -->
+	<script>
+	var map;	// Google map object
+	var currentMarker;
+	
+	// Initialize and display a google map
+	function mapInit()
+	{
+		// Create a Google coordinate object for where to initially center the map
+		var latlng = new google.maps.LatLng( 38.115702,13.361281 );	// Palermo
+		
+		// Map options for how to display the Google map
+		var mapOptions = { zoom: 11, center: latlng  };
+		
+		// Show the Google map in the div with the attribute id 'map-canvas'.
+		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	}
+	function setMarker(latlng, title, address) {
+		clearMarker();
+		var marker = new google.maps.Marker( { 
+			position: latlng,     
+			map: map,
+			title: title
+		});
+		currentMarker = marker;
+		// Create an InfoWindow for the marker
+		var contentString = "" + address + "";	// HTML text to display in the InfoWindow
+		var infowindow = new google.maps.InfoWindow( { content: contentString } );
+		
+		// Set event to display the InfoWindow anchored to the marker when the marker is clicked.
+		google.maps.event.addListener( marker, 'click', function() { infowindow.open( map, marker ); });
+		
+		map.setZoom( 12 );
+		map.setCenter(latlng);
+	}
+	function clearMarker() {
+		if (currentMarker!=null)
+			currentMarker.setMap(null);
+	}
+	
+	mapInit();
+	</script>
+	
+	<!-- 	to be included always - start -->
+	<script src="src/ui.js"></script>
+	<!-- 	to be included always - end -->
+	<script type="text/javascript">
+ 		$('#core').css('border','1px solid black');
+ 		$('.content').css('max-width','1500px').css('text-align','center');
+	</script>
+	
 </body>
 </html>

@@ -125,18 +125,7 @@
             .attr('x', getXPos)
             .attr("y", getStackPosition)
             .attr("width", function (d, i) {
-	      var start = new Date("January 1, 2014 "+d.starting_time.replace(".",":"));
-	      var end = "";
-	      console.log(start);
-	      
-	      if (d.ending_time > 0 && d.ending_time < 6)
-		end = new Date("January 2, 2014 "+d.ending_time.replace(".",":"));
-	      else
-		end = new Date("January 1, 2014 "+d.ending_time.replace(".",":"));
-	      return (end.getTime() - start.getTime()) * scaleFactor;
-	      
-//               return (d.ending_time - d.starting_time) * scaleFactor;
-	      
+            	return (d.ending_time - d.starting_time) * scaleFactor;
             })
             .attr("cy", getStackPosition)
             .attr("cx", getXPos)
@@ -145,7 +134,7 @@
             .style("fill", function(d, i){
               if (d.color) return d.color;
               if( colorPropertyName ){ 
-                return colorCycle( datum[colorPropertyName] ) 
+                return colorCycle( datum[colorPropertyName] );
               } 
               return colorCycle(index);  
             })
