@@ -11,12 +11,16 @@ import net.iubris.datautils.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class DateToEpochFormatter {
+public class DateToEpochFormatterAndReduceTipiSpecifici {
 
 	public static void main(String[] args) {
 		try {
-			String jsonFile = FileUtils.readFile(args[0], Charset.defaultCharset());
-			new DateToEpochFormatter().adjustTime(jsonFile);
+//			String input = args[0];
+			String input = "../divertimento_e_ristoro_-_timeline.json";
+			String jsonFile = FileUtils.readFile(input, Charset.defaultCharset());
+			String adjustedTimeAndTipiSpecifici = new DateToEpochFormatterAndReduceTipiSpecifici().adjustTimeAndTipiSpecifici(jsonFile);
+			FileUtils.writeToFile(adjustedTimeAndTipiSpecifici, "../divertimento_e_ristoro_-_timeline__epoched_tipireduced.json");
+//			System.out.println( adjustedTimeAndTipiSpecifici );
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {
@@ -24,7 +28,7 @@ public class DateToEpochFormatter {
 		}
 	}
 	
-	private void adjustTime(String dataAsString) throws ParseException {
+	private String adjustTimeAndTipiSpecifici(String dataAsString) throws ParseException {
 		JSONArray jsonArray = new JSONArray(dataAsString);
 		int length = jsonArray.length();
 //		System.out.println(jsonArray);
@@ -55,7 +59,7 @@ public class DateToEpochFormatter {
 				case "Discoteca":
 					tipiSpecificiNew = "Discoteca";
 					break;
-				case "Pub, Discopub":
+				case "Pub, DiscoPub":
 					tipiSpecificiNew = "DiscoPub";
 					break;
 				case "Cocktail Bar":
@@ -77,7 +81,8 @@ public class DateToEpochFormatter {
 					tipiSpecificiNew = "";
 					break;					
 			}
-			jsonObject.put("tipi-specifici", tipiSpecificiNew);
+//			jsonObject.put("tipi_specifici", tipiSpecifici);
+			jsonObject.put("tipi_specifici-reduced", tipiSpecificiNew);
 			/*
 			Discoteca d3.js:7621
 			Pub, Discopub d3.js:7621
@@ -92,7 +97,6 @@ public class DateToEpochFormatter {
 			String date = "1970-01-01";
 //			JSONObject times = jsonObject.getJSONObject("times");
 			JSONArray times = jsonObject.getJSONArray("times");
-//			System.out.println(times);
 			String startingTime = times.getJSONObject(0).getString("starting_time");
 			long startingTimeEpoch = 0;
 			if (startingTime.isEmpty())
@@ -126,6 +130,6 @@ public class DateToEpochFormatter {
 			jsonObject.put("times", times);
 			jsonArray.put(i, jsonObject);
 		}
-		System.out.println( jsonArray.toString() );
+		return jsonArray.toString();		
 	}
 }
