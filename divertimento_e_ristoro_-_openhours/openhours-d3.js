@@ -1,25 +1,23 @@
-var csvFile = "divertimento_e_ristoro_-_openhours/divertimento_e_ristoro_-_openhours.csv";
-var jsonFile = "divertimento_e_ristoro_-_openhours/divertimento_e_ristoro_-_openhours.json";
+var nameFileWithPathWithoutExtension = "divertimento_e_ristoro_-_openhours/divertimento_e_ristoro_-_openhours";
+var csvFile =  nameFileWithPathWithoutExtension+".csv";
+var jsonFile = nameFileWithPathWithoutExtension+".json";
 
 // loading json zone
 var json;
 $.ajax({
 	url: jsonFile,
 	async: true,
-	dataType: 'text/csv',
+	dataType: 'text/json',
 	timeout: 10000,
-	success: assign,
+	success: parse,
 	error: handleError
 });
-function assign(data) {
-//		json = csvjson.csv2json(csv).rows;
+function parse(data) {
 	json = JSON.parse(data);
-//	console.log(json);
 }
 function handleError(data) {
 	if (data.readyState === 4 && data.status === 200 && data.statusText === "OK")
-//			convert(data.responseText);
-		assign(data.responseText);
+		parse(data.responseText);
 	else
 		console.error(data);
 }
@@ -249,7 +247,23 @@ var render = function(dataset) {
 function handleClick(place) {
 //	console.log(place);
 //	var query = $objeq("\""+place.name+"\" "+"=~ nome -> {nome: nome}");
-	var query = $objeq("nome =~ %1 -> {nome: nome, geolocazione: geolocazione, indirizzo: indirizzo, 'numero-civico': \'numero-civico\', }",place.name);
-	var res = query(json);
-	console.log(res);
+	var query = $objeq("nome =~ %1 -> {nome: nome, geolocazione: geolocazione, indirizzo: indirizzo, numeroCivico: numeroCivico, telefono: telefono, mobile: mobile, web: web, tipiSpecifici: tipiSpecifici}",place.name);
+	var res = query(json)[0];
+	var title = res.nome;
+	var address = res.indirizzo+" "+res.numeroCivico;
+	var tipiSpecifici = res.tipiSpecifici;
+	var latlngArray = res.geolocazione.split(",");
+	var lat = latlngArray[0];
+	var lng = latlngArray[1];
+	var latlng = new google.maps.LatLng(lat,lng);
+	var phone = getPhone(res);
+	palerMobileMap.setMarker(latlng, title, address, phone, tipiSpecifici, res.web);
+	scrollToElement('#map-canvas_openhours');
+	
+	function getPhone(datum) {
+		var tel = checkField(datum.telefono);
+		if (tel != "")
+			return tel;
+		return checkField(datum.mobile);
+	}
 }

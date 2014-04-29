@@ -20,7 +20,7 @@ function PalerMobileMap(mapcanvasDiv) {
 		// Show the Google map in the div with the attribute id 'map-canvas'.
 		map = new google.maps.Map(document.getElementById(this._mapcanvasDiv), mapOptions);
 	};
-	function setMarker(latlng, title, address, phone, tipiSpecifici) {
+	function setMarker(latlng, title, address, phone, tipiSpecifici, web) {
 		clearMarker();
 		var marker = new google.maps.Marker({
 			position: latlng,
@@ -37,8 +37,10 @@ function PalerMobileMap(mapcanvasDiv) {
 				+ "<div class='infowindow_content'" // start content
 					+ "<div>"+"<i>"+tipiSpecifici+"</i></div>"
 					+ "<div>"+address+"</div>"
-					+ "<div>"+phone+"</div>"
-				+ "</div>" // end content
+					+ "<div>"+phone+"</div>";
+		var web = checkField(web);
+		contentString += "<div><a href="+web+">"+web+"</a></web>";
+		contentString += "</div>" // end content
 			+"</div>"; // HTML text to display in the InfoWindow
 		var infowindow = new google.maps.InfoWindow({ content: contentString });
 		

@@ -6,6 +6,7 @@
 	
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>	<!-- Google Maps API -->
 	<script type="text/javascript" src="src/smoothScrolling.js"></script>
+	<script type="text/javascript" src="src/checkField.js"></script>
 	
 	<!-- 	to be included always - start -->
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
@@ -47,21 +48,21 @@
 	<script type="text/javascript">
 	
 		// "jsonFile" name is by convention
-		var jsonFile = "divertimento_e_ristoro_-_timeline/divertimento_e_ristoro_-_timeline__epoched_tipireduced.json";
+		var jsonFile = "divertimento_e_ristoro_-_timeline/divertimento_e_ristoro_-_timeline.json";
 
 		// "visualize(data)" function signature is by convention
 		function visualize(data) {
 		var width = 500;
 		
 		var colorScale = d3.scale.ordinal()
-			//					 purple,   pink,     light blue,  		blue,  		dark green, bordeaux, red
-			.range(['#ff00cc','#9900ff','#3399CC','#000033','#009900','#990000','#ff0000'])
-			.domain(["Discoteca","DiscoPub","Cocktail","American","Panineria","Pub","Wine"]);
+			//		 purple,   pink,     light blue, blue, 	dark green, bordeaux, red,		black
+			.range(['#ff00cc','#9900ff','#3399CC','#000033','#009900','#990000','#ff0000',"#000000"])
+			.domain(["Discoteca","DiscoPub","Cocktail","American","Panineria","Pub","Wine","Default"]);
 
 		var chart = d3
 			.timeline()	
 			.colors( colorScale )
-			.colorProperty('tipi_specifici-reduced')
+			.colorProperty('tipiSpecificiReduced')
 			.width(width*2)
 			.stack()
 			.margin({left:120, right:10, top:0, bottom:0})
@@ -81,31 +82,22 @@
 			})
 			.click(function (d, i, datum) {
 				var title = datum.label;
-				var address = datum.indirizzo+" "+datum['numero-civico'];
-				var tipiSpecifici = datum['tipi-specifici'];
+				var address = datum.indirizzo+" "+datum['numeroCivico'];
+				var tipiSpecifici = datum['tipiSpecifici'];
 				var latlngArray = datum.geolocazione.split(",");
 				var lat = latlngArray[0];
 				var lng = latlngArray[1];
 				var latlng = new google.maps.LatLng(lat,lng);
 				var phone = getPhone(datum);
-				palerMobileMap.setMarker(latlng, title, address, phone, tipiSpecifici);
-				scrollToElement('#map-canvas');
+				palerMobileMap.setMarker(latlng, title, address, phone, tipiSpecifici, datum.web);
+				scrollToElement('#map-canvas_timeline');
 				
 				
-				function checkPhone(phone) {
-					if (phone !== undefined || phone !=="" || phone !== null)
-						return phone;
-					else
-						return false
-				}
 				function getPhone(datum) {
-					var tel = checkPhone(datum.telefono);
-					if (tel != false)
+					var tel = checkField(datum.telefono);
+					if (tel != "")
 						return tel;
-					tel = checkPhone(datum.mobile);
-					if (tel != false)
-						return tel;
-					return "";
+					return checkField(datum.mobile);
 				}
 			});
 

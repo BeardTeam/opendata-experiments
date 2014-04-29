@@ -10,17 +10,17 @@ import org.json.JSONObject;
 
 import net.iubris.datautils.FileUtils;
 
-public class CsvToOpenHoursCsv {
+public class CsvToOpenHours {
 	
 	public static void main(String[] args) {
 		try {
 //			String input = args[0];
 			String input = "../../data/divertimento_e_ristoro.csv";
 			String jsonFileAsString = FileUtils.readFile(input, Charset.defaultCharset());
-			JSONArray adjustedHours = new CsvToOpenHoursCsv().adjustHours(jsonFileAsString);
-			String openHoursCSV = new CsvToOpenHoursCsv().adjustHoursToCSV(adjustedHours);
+			JSONArray adjustedHours = new CsvToOpenHours().adjustHours(jsonFileAsString);
+			String openHoursCSV = new CsvToOpenHours().adjustHoursToCSVWithoutHeader(adjustedHours);
 			FileUtils.writeToFile(openHoursCSV, "divertimento_e_ristoro_-_openhours.csv");
-			String openHoursJSON = new CsvToOpenHoursCsv().adjustHoursToJSONString(adjustedHours);
+			String openHoursJSON = new CsvToOpenHours().adjustHoursToJSONString(adjustedHours);
 			FileUtils.writeToFile(openHoursJSON, "divertimento_e_ristoro_-_openhours.json");
 //			System.out.println(openHoursCSV);
 		} catch (IOException e) {
@@ -28,8 +28,9 @@ public class CsvToOpenHoursCsv {
 		}
 	}
 	
-	private String adjustHoursToCSV(JSONArray jsonArrayAdjusted) {
-		return CDL.toString(jsonArrayAdjusted);
+	private String adjustHoursToCSVWithoutHeader(JSONArray jsonArrayAdjusted) {
+		String string = CDL.toString(new JSONArray("[nome,openhours,geolocazione,indirizzo,numeroCivico,cap,quartiere,citta,telefono,fax,mobile,email,web,tipi,tipiSpecifici]"), jsonArrayAdjusted);
+		return string;
 	}
 	private String adjustHoursToJSONString(JSONArray jsonArrayAdjusted) {
 		return jsonArrayAdjusted.toString();
@@ -64,9 +65,14 @@ public class CsvToOpenHoursCsv {
 			
 			String[] headers = new String[]{"geolocazione","indirizzo","numero-civico","cap","quartiere","citta","telefono","fax","mobile","email","web","tipi","tipi-specifici"};
 			for (String h: headers) {
-				newJsonObject.put(h, jsonObject.getString(h) );
+				if (h=="numero-civico")
+					newJsonObject.put("numeroCivico", jsonObject.getString(h) );
+				else if (h=="tipi-specifici")
+					newJsonObject.put("tipiSpecifici", jsonObject.getString(h) );
+				else
+					newJsonObject.put(h, jsonObject.getString(h) );
 			}
-			
+//			System.out.println(newJsonObject);
 			newJsonArray.put(newJsonObject);
 		}
 		
@@ -77,7 +83,7 @@ public class CsvToOpenHoursCsv {
 		
 		DecimalFormat df2 = new DecimalFormat("#.00");
 		String hoursString = ""+df2.format(hours);
-		hoursString = hoursString.replace(",", ":")+" ";
+		hoursString = hoursString.replace(",", ":").replace(".", ":")+" ";
 		if (hours<12)
 			hoursString+="am";
 		else
