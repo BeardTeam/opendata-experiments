@@ -139,6 +139,9 @@ var redraw = function(dataset) {
             .attr("height", 6)
             .attr("transform", "translate(0,-1)");
       })
+      .on("click", function(place) {
+            handleClick(place);
+      })
       .on("mouseout", function() {
         d3.select(this).transition()
             .duration(100).attr('height', 4)
