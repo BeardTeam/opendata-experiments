@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+#ChartArea {
+    margin-left: -8em;
+
+}
+	#ChartSVG {
+	border: 1px solid rgba(153,153,153, 0.5);
+	width: 65em;
+	padding-left:65px;
+	}
+ 	line.rule {
+	stroke: #ccc;
+}
+line.current-time {
+	stroke: #f00;
+	stroke-width: 3px;
+}
+rect.current-clickoverlay {
+	fill: rgba(255,255,0, 0.01);
+	cursor: pointer;
+}
+.x-axis text {
+	font: 12px sans-serif;
+}
+.x-axis path,
+.x-axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+ 	text.place-names {
+	font: 10px sans-serif;
+	color: #666;
+ 	}
+  
+#map-canvas_openhours {
+	margin: 2em 0 0 2em;
+	width : 500px; 	/* map width */
+	height: 500px;	/* map height */
+}
+		

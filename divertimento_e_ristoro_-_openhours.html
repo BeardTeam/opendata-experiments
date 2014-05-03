@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>PalerMobile - OpenHours</title>
+		<title>OpenDataExperiment - OpenHours@PalerMobile</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,58 +14,18 @@
 		<script src="divertimento_e_ristoro_-_openhours/openhours.js"></script>
 		
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>	<!-- Google Maps API -->
-		<script type="text/javascript" src="src/smoothScrolling.js"></script>
-		<script type="text/javascript" src="src/checkField.js"></script>
+		<script type="text/javascript" src="js/smoothScrolling.js"></script>
+		<script type="text/javascript" src="js/checkField.js"></script>
 				
 <!-- 		<script src="src/csvjson.min.js"></script> -->
-		<script src="src/objeq.min.js" type="text/javascript"></script>
+		<script src="js/objeq/objeq.min.js" type="text/javascript"></script>
 	
 		<!-- 	to be included always - start -->
 		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
 		<link rel="stylesheet" href="css/side-menu.css"></link>
 		<!-- 	to be included always - end -->
 
-		<style>
-			#ChartArea {
-			    margin-left: -8em;
-			
-			}
- 			#ChartSVG {
-				border: 1px solid rgba(153,153,153, 0.5);
-				width: 65em;
-				padding-left:65px;
- 			}
-		  	line.rule {
-				stroke: #ccc;
-			}
-			line.current-time {
-				stroke: #f00;
-				stroke-width: 3px;
-			}
-			rect.current-clickoverlay {
-				fill: rgba(255,255,0, 0.01);
-				cursor: pointer;
-			}
-			.x-axis text {
-				font: 12px sans-serif;
-			}
-			.x-axis path,
-			.x-axis line {
-				fill: none;
-				stroke: #000;
-				shape-rendering: crispEdges;
-			}
-		  	text.place-names {
-				font: 10px sans-serif;
-				color: #666;
-		  	}
-			  
-			#map-canvas_openhours {
-				margin: 2em 0 0 2em;
-				width : 500px; 	/* map width */
-				height: 500px;	/* map height */
-			}
-		</style>
+		<link rel="stylesheet" href="divertimento_e_ristoro_-_openhours/css/style.css"></link>
   </head>
 
   <body>
@@ -77,23 +37,26 @@
 				<span></span>
 			</a>
 			<div class="pure-menu pure-menu-open">
-			<a class="pure-menu-heading" href="#">PalerMobile</a>
+			<a class="pure-menu-heading" href="#">O.D.E.</a>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li class="menu-item-divided pure-menu-selected">
                     <a href="divertimento_e_ristoro_-_openhours.html">OpenHours</a>
                     <a href="divertimento_e_ristoro_-_timeline.html">Timeline</a>
-                    <a href="arrivi_turisti_stranieri.html">Affluenza</a>
-                    <a href="autovetture_circolanti_e_immatricolate.html">Auto</a>
+                    <a href="arrivi_turisti_stranieri.html">Choropleth</a>
+                    <a href="autovetture_circolanti_e_immatricolate.html">Richshaw (D3)</a>
+	      			<a href="autovetture_circolanti_e_immatricolate_-_google_stacklines.html">(Time)Line Chart<br/>(Google)</a>
+	      			<a href="autovetture_circolanti_e_immatricolate_-_google_timeline.html">Timeline Chart<br/>(Google)</a>
                 </li>
             </ul>
 		</div>
 		</div>
 		<div id="main">
 			<div class="header">
-				<h1>PalerMobile using d3</h1>
-				<h3>An interactive "openhours"</h3>
+				<h1>OpenDataExperiment</h1>
+				<h3>PalerMobile using d3</h3>
+				<h4>An interactive "openhours"</h4>
 			</div>
 			<div class="content">
 <!-- 	to be included always - end -->
@@ -108,7 +71,7 @@
 <!-- 	to be included always - end -->
 
 	<script src="divertimento_e_ristoro_-_openhours/openhours-d3.js"></script>
-	<script type="text/javascript" src="src/palermobile-map.js"></script>
+	<script type="text/javascript" src="js/map/palermobile-map.js"></script>
 	<script>
 		var palerMobileMap = new PalerMobileMap("map-canvas_openhours");
 		palerMobileMap.init();

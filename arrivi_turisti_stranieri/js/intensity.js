@@ -20,8 +20,8 @@ function setup(width,height){
 	graticule = d3.geo.graticule();
 
 	svg = d3.select("#container").append("svg")
-					.attr("width", width)
-					.attr("height", height);
+		.attr("width", width)
+		.attr("height", height);
 
 
 	var outterg = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
@@ -29,17 +29,17 @@ function setup(width,height){
 	g = outterg.append("g").attr("id", "innerg");
 
 	g.append("defs").append("path")
-					.datum({type: "Sphere"})
-					.attr("id", "sphere")
-					.attr("d", path);
+		.datum({type: "Sphere"})
+		.attr("id", "sphere")
+		.attr("d", path);
 
 	g.append("use")
-					.attr("class", "stroke")
-					.attr("xlink:href", "#sphere");
+		.attr("class", "stroke")
+		.attr("xlink:href", "#sphere");
 
 	g.append("use")
-					.attr("class", "fill")
-					.attr("xlink:href", "#sphere");
+		.attr("class", "fill")
+		.attr("xlink:href", "#sphere");
 
 	g.append("path")
 	.datum(graticule)
@@ -60,10 +60,14 @@ function addCommas(nStr){
 	return x1 + x2;
 }
 
+var world = "arrivi_turisti_stranieri/map/world-110m-cia.json";
+var area = "arrivi_turisti_stranieri/map/area.csv";
+var turisti = "arrivi_turisti_stranieri/data/turisti_stranieri_2011.csv";
+
 queue()
-	.defer(d3.json, "arrivi_turisti_stranieri/world-110m-cia.json")
-	.defer(d3.csv, "arrivi_turisti_stranieri/turisti_stranieri_2011.csv")
-	.defer(d3.csv, "arrivi_turisti_stranieri/area.csv")
+	.defer(d3.json, world)
+	.defer(d3.csv, turisti)
+	.defer(d3.csv, area)		
 	.await(ready);
 
 function ready(error, world, population, area) {
@@ -72,7 +76,10 @@ topo = topojson.feature(world, world.objects.countries).features;
 
 //update topo with population density
 topo.forEach(function(f){
-		var cpop = population.filter(function(a){ return a.country == f.id});
+		var cpop = population.filter(function(a){
+			var b = a.country == f.id;
+			return b;
+			});
 // 					console.log(cpop);
 	if(cpop.length>0){
 		/*
@@ -88,10 +95,10 @@ topo.forEach(function(f){
 
 //sort it by density
 topo.sort(function(a, b){ 
-		return d3.descending(parseInt(a.properties.density), parseInt(b.properties.density)) 
+	return d3.descending(parseInt(a.properties.density), parseInt(b.properties.density));
 });
 
-var split = 	[ 280, 				6000,       		12000,			 24000, 			36000, 			48000,				60000,	72000,				84000,		96000,			108000,  111064		];
+var split = 	[ 280, 	6000,       12000,	24000, 		36000, 	48000,		60000,	72000,		84000,	96000,		108000,  111064		];
 var colors = ["#FFFFFF","#F7FBFF","#DEEBF7","#C6DBEF","#9ECAE1","#6BAED6","#4292C6","#2171B5","#08519C","#08306C","#08203B","#05105A"];
 
 var color = d3.scale.threshold()
@@ -135,15 +142,16 @@ var color = d3.scale.threshold()
 
 	colors.forEach(function(f,i){
 // 						console.log(split[i]);
-			if(i==0){
-					var label = '0-'+addCommas(split[i]);
+		var label = "";
+		if(i==0){
+			label = '0-'+addCommas(split[i]);
 // 									var label = "No data";
-			} else if(i==12){
-					var label = addCommas(split[i-1])+'-'+addCommas(parseInt(topo[0].properties.density));
-			} else {
-					var label = addCommas(split[i-1])+'-'+addCommas(split[i]);
-			}
-			legend += '<div style="background:'+f+';"></div><label>'+label+'</label>';
+		} else if(i==12){
+			label = addCommas(split[i-1])+'-'+addCommas(parseInt(topo[0].properties.density));
+		} else {
+			label = addCommas(split[i-1])+'-'+addCommas(split[i]);
+		}
+		legend += '<div style="background:'+f+';"></div><label>'+label+'</label>';
 	});
 
 	d3.select("#legend").html(legend);
@@ -160,12 +168,12 @@ var color = d3.scale.threshold()
 					;
 
 	topo.forEach(function(c){
-			if(c.properties.density !== undefined){
-					tbody.append("tr").html('<td>'
-							+c.properties.name
-							+'</td><td>'
-							+addCommas(parseInt(c.properties.density))
-							+'</td>')
-			}
+		if(c.properties.density !== undefined){
+			tbody.append("tr").html('<td>'
+				+c.properties.name
+				+'</td><td>'
+				+addCommas(parseInt(c.properties.density))
+				+'</td>');
+		}
 	});
 }

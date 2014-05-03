@@ -1,111 +1,22 @@
 <html>
 <head>
+	<title>OpenDataExperiment - OpenHours@PalerMobile</title>
+	
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="divertimento_e_ristoro_-_timeline/d3-timeline/lib/d3.js" charset="utf-8"></script>
 	<script src="divertimento_e_ristoro_-_timeline/d3-timeline/src/d3-timeline.js"></script>
 	
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>	<!-- Google Maps API -->
-	<script type="text/javascript" src="src/smoothScrolling.js"></script>
-	<script type="text/javascript" src="src/checkField.js"></script>
+	<script type="text/javascript" src="js/smoothScrolling.js"></script>
+	<script type="text/javascript" src="js/checkField.js"></script>
 	
 	<!-- 	to be included always - start -->
 	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
 	<link rel="stylesheet" href="css/side-menu.css"></link>
 	<!-- 	to be included always - end -->
 
-	<style type="text/css">
-		.axis path,
-		.axis line {
-			fill: none;
-			stroke: black;
-			shape-rendering: crispEdges;
-		}
-		.axis text {
-			font-family: sans-serif;
-			font-size: 10px;
-		}
-		.timeline-label {
-			font-family: sans-serif;
-			font-size: 12px;
-		}
-		#out .axis {
-			transform: translate(0px,30px);
-			-ms-transform: translate(0px,30px); // IE 9
-			-webkit-transform: translate(0px,30px); // Safari and Chrome
-			-o-transform: translate(0px,30px); // Opera
-			-moz-transform: translate(0px,30px); // Firefox
-		}
-		.colored {
-			height:20px; width:20px; float:left;
-		}
-		#map-canvas_timeline {
-			margin: 2em 0 0 2em;
-			width : 500px; 	/* map width */
-			height: 500px;	/* map height */
-		}
-	</style>
-
-	<script type="text/javascript">
-	
-		// "jsonFile" name is by convention
-		var jsonFile = "divertimento_e_ristoro_-_timeline/divertimento_e_ristoro_-_timeline.json";
-
-		// "visualize(data)" function signature is by convention
-		function visualize(data) {
-		var width = 500;
-		
-		var colorScale = d3.scale.ordinal()
-			//		 purple,   pink,     light blue, blue, 	dark green, bordeaux, red,		black
-			.range(['#ff00cc','#9900ff','#3399CC','#000033','#009900','#990000','#ff0000',"#000000"])
-			.domain(["Discoteca","DiscoPub","Cocktail","American","Panineria","Pub","Wine","Default"]);
-
-		var chart = d3
-			.timeline()	
-			.colors( colorScale )
-			.colorProperty('tipiSpecificiReduced')
-			.width(width*2)
-			.stack()
-			.margin({left:120, right:10, top:0, bottom:0})
-			.tickFormat( // 
-				{	format: d3.time.format("%H"), 
-					tickTime: d3.time.hours,
-					tickInterval: 1,
-					tickSize: 6})
-			.hover(function (d, i, datum) {
-				var div = $('#hover');
-				var colors = chart.colors();
-				div.find('.colored').css('background-color', colors(i));
-				div.find('#name').text(datum.label);
-			})
-			.scroll(function (x, scale) {
-				$("#scrolled_date").text(scale.invert(x) + " to " + scale.invert(x+width));
-			})
-			.click(function (d, i, datum) {
-				var title = datum.label;
-				var address = datum.indirizzo+" "+datum['numeroCivico'];
-				var tipiSpecifici = datum['tipiSpecifici'];
-				var latlngArray = datum.geolocazione.split(",");
-				var lat = latlngArray[0];
-				var lng = latlngArray[1];
-				var latlng = new google.maps.LatLng(lat,lng);
-				var phone = getPhone(datum);
-				palerMobileMap.setMarker(latlng, title, address, phone, tipiSpecifici, datum.web);
-				scrollToElement('#map-canvas_timeline');
-				
-				
-				function getPhone(datum) {
-					var tel = checkField(datum.telefono);
-					if (tel != "")
-						return tel;
-					return checkField(datum.mobile);
-				}
-			});
-
-		var svg = d3.select("#out").append("svg")
-			.attr("width", width*3)
-			.datum(data).call(chart);
-		}
-	</script>
+	<link rel="stylesheet" href="divertimento_e_ristoro_-_timeline/css/style.css"></link>
+	<script src="divertimento_e_ristoro_-_timeline/js/core.js"></script>
 
 </head>
 <body>
@@ -117,23 +28,26 @@
 	        	<span></span>
 			</a>
         	<div class="pure-menu pure-menu-open">
-            <a class="pure-menu-heading" href="#">PalerMobile</a>
+            <a class="pure-menu-heading" href="#">O.D.E.</a>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li class="menu-item-divided pure-menu-selected">
                     <a href="divertimento_e_ristoro_-_openhours.html">OpenHours</a>
                     <a href="divertimento_e_ristoro_-_timeline.html">Timeline</a>
-                    <a href="arrivi_turisti_stranieri.html">Affluenza</a>
-                    <a href="autovetture_circolanti_e_immatricolate.html">Auto</a>
+                    <a href="arrivi_turisti_stranieri.html">Choropleth</a>
+				      <a href="autovetture_circolanti_e_immatricolate.html">Richshaw (D3)</a>
+	      			<a href="autovetture_circolanti_e_immatricolate_-_google_stacklines.html">(Time)Line Chart<br/>(Google)</a>
+	      			<a href="autovetture_circolanti_e_immatricolate_-_google_timeline.html">Timeline Chart<br/>(Google)</a>
                 </li>
             </ul>
         </div>
     	</div>
 		<div id="main">
 			<div class="header">
-				<h1>PalerMobile using d3</h1>
-		    	<h3>An interactive timeline</h3>
+				<h1>OpenDataExperiment</h1>
+				<h3>PalerMobile using d3</h3>
+		    	<h4>An interactive timeline</h4>
     		</div>
     		<div class="content">
 <!-- 	to be included always - end -->
@@ -152,16 +66,16 @@
   </div>
 <!-- 	to be included always - end -->
   
-	<script type="text/javascript" src="src/ajaxJsonLoader.js"></script>
+	<script type="text/javascript" src="js/ajaxJsonLoader.js"></script>
 
-	<script type="text/javascript" src="src/palermobile-map.js"></script>
+	<script type="text/javascript" src="js/map/palermobile-map.js"></script>
 	<script>
 		var palerMobileMap = new PalerMobileMap("map-canvas_timeline");
 		palerMobileMap.init();
 	</script>
 	
 	<!-- 	to be included always - start -->
-	<script src="src/ui.js"></script>
+	<script src="js/ui.js"></script>
 	<!-- 	to be included always - end -->
 	<script type="text/javascript">
  		$('#core').css('border','1px solid black');
