@@ -50,7 +50,7 @@ var div = d3.select("body").append("div")
     .style("left", margin.left + "px")
     .style("top", margin.top + "px");
 
-d3.json("data/totaleConGerarchiaTipi.json", function(error, root) {
+d3.json("data/totaleConGerarchiaTipi2.json", function(error, root) {
   var node = div.datum(root).selectAll(".node")
       .data(treemap.nodes)
     .enter().append("div")

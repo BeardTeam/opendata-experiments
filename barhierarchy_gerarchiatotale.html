@@ -29,8 +29,7 @@ rect.background {
   </head>
   <body>
     <h2>
-      Flare code size<br>
-      hierarchical bar chart
+      Hierarchical bar chart
     </h2>
     <script type="text/javascript" src="javascripts/d3/d3.js"></script>
     <script type="text/javascript" src="javascripts/d3/d3.layout.js"></script>
@@ -70,7 +69,7 @@ svg.append("svg:g")
   .append("svg:line")
     .attr("y1", "100%");
 
-d3.json("data/totaleConGerarchiaTipi.json", function(root) {
+d3.json("data/totaleConGerarchiaTipi2.json", function(root) {
   hierarchy.nodes(root);
   x.domain([0, root.value]).nice();
   down(root, 0);

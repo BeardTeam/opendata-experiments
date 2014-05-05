@@ -35,7 +35,6 @@ text {
     <div id="body">
       <div id="footer">
         d3.layout.partition
-        <div class="hint">click or option-click to descend or ascend</div>
       </div>
     </div>
     <script type="text/javascript">
@@ -56,7 +55,7 @@ var vis = d3.select("#body").append("div")
 var partition = d3.layout.partition()
     .value(function(d) { return d.size; });
 
-d3.json("data/totaleConGerarchiaTipi.json", function(root) {
+d3.json("data/totaleConGerarchiaTipi2.json", function(root) {
   var g = vis.selectAll("g")
       .data(partition.nodes(root))
     .enter().append("svg:g")
