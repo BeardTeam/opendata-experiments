@@ -10,6 +10,12 @@ var menuItemsMap = {
 	'bubble_chart': "Bubble Chart",
 	'collapsible_tree': 'Collapsible Tree',
 	'collapsible_indented_tree': 'Collapsible Indented Tree',
+	partition: 'Partition',
+	'radial_reingold': "Radial Reingold",
+	'tree_reingold': "Tree Reingold",
+	'tree_map': "Tree Map",
+	'zoomable_circle': "Zoomable Circle",
+	'code_flower': "Code Flower",
 	choropleth: "Choropleth",
 	timeline: "Timeline",
 	openhours: "OpenHours",	
@@ -85,4 +91,7 @@ function moveDiv(divToMove,newDivContainer) {
 }
 moveDiv('core','content');
 
-jQuery("menu-item-divided pure-menu-selected").css("font","7pt");
+//jQuery("menu-item-divided pure-menu-selected").css("font","12pt");
+
+//jQuery('#home')
+

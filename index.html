@@ -9,8 +9,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
 				<style>
-					#legend {
-						margin: 2% 0 -4% 0;
+					#intro_h2 {
+						margin: 10% 0 0 0%;
+						width: 960px;
+					}
+					.plus_widget {
+						float: left;
+						clear: none;
 					}
 				</style>
   </head>
@@ -41,10 +46,11 @@
 	</div>
 <!-- to be included always - end -->
   	<div id="core">
-  		<div id="legend"></div>
-   	<div id="timeline_chart" style="margin-top:50px">
-   		<iframe height=784 width=1036 src="//docs.google.com/spreadsheets/d/1UhfLmSga0FVSzJq6i18gCL_2plwqR3nedzve0srgs0k/gviz/chartiframe?oid=622578487" seamless frameborder=0 scrolling=no></iframe>
-   	</div>
+  		<div id="intro">
+  			<h2 id="intro_h2"></h2>
+  		</div>
+  		<div id="plus">  			
+  		</div>
 	  </div>
 	  
 	  <!-- to be included always - start -->
@@ -55,14 +61,16 @@
 	  <script type="text/javascript">
 	  	var labelsMap = {
 					it: {
-					  "header_h3": "Palermo OpenData con GoogleCharts StackLines",
-					  "header_h4": "head",
-					  "legend": "Auto di Palermo<br/><font color='blue'>Circolanti</font> vs <font color='red'>Immatricolate</font><br/>nel periodo 1999-2011"
+					  "header_h3": "",
+					  "header_h4": "",
+					  "intro_h2": "",
+					  "legend": ""
 					},
 					'default': {
-						"header_h3": "Palermo OpenData using GoogleCharts TimeLines",
-						"header_h4": "An interactive timeline with 'hover' gesture on lines,<br/>side labels referring to values, and a zoom function provided on x-axis (the time)",
-				  "legend": "Cars at Palermo<br/><font color='blue'>Moving</font> vs <font color='red'>Registered</font><br/>between 1999 and 2011"
+						"header_h3": "",
+						"header_h4": "",
+						"intro_h2": "Some experiments using D3.js, RickShaw and Google Charts<br/><br/><br/><br/>We'll show as raw data can give you a powerful visualization,<br/>allowing a more intuitive analysis than (unreadeable) table form.<br/><br/><br/><br/><br/>Choice any link from side panel and have fun!",
+				  "legend": ""
 					}
 	   }
 	   setTranslateLabels(getLanguage(),labelsMap);

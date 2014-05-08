@@ -27,10 +27,9 @@
 					  stroke-width: .5px;
 					}
 					#core {
-						margin: 3% 0 0 -20%;
+						margin: 3% 0 0 -10%;
 					}
-					#legend {
-					
+					#legend {					
 						margin: 0 0 -6% 16%;
 					}
 				</style>
@@ -43,8 +42,8 @@
 				<div class="pure-menu pure-menu-open">
 	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
 				  <ul>
-				    <li><a href="#">Home</a></li>
-				    <li><a id="about" href="#"></a></li>
+								<li><a href="index.html">Home</a></li>
+				    <li><a id="about" href="about.html"></a></li>
 				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
 				  </ul>
 				</div>
@@ -54,6 +53,7 @@
 				    <h1>OpenDataExperiment</h1>
 				    <h3 id="header_h3"></h3>
 				    <h4 id="header_h4"></h4>
+				    <h5 id="header_h5"></h5>
 				</div>
 			<div id="content" class="content">
 			</div>
@@ -71,8 +71,8 @@
     <script type="text/javascript">
 
 var m = [80, 160, 0, 160], // top right bottom left
-    w = 1280 - m[1] - m[3], // width
-    h = 800 - m[0] - m[2], // height
+    w = 960 - m[1] - m[3], // width
+    h = 720 - m[0] - m[2], // height
     x = d3.scale.linear().range([0, w]),
     y = 25, // bar height
     z = d3.scale.ordinal().range(["steelblue", "#aaa"]); // bar color
@@ -274,11 +274,13 @@ function stack(i) {
 				it: {
 				  "header_h3": "PalerMobile con D3",
 				  "header_h4": "Hierarchical bar chart",
+				  "header_h5": "Luoghi, locali e attività di Palermo visualizzati tramite barre orizzontali,<br/>la cui lunghezza è relativa ad un valore arbitrario<br/>(in questo caso: quante informazioni sono state fornite per ogni entità)",
 				  "legend": "informazioni fornite"
 				},
 				'default': {
 					"header_h3": "PalerMobile using D3",
 					"header_h4": "Hierarchical bar chart",
+					"header_h5": "Places at Palermo, showed by horizontal bar per-place,<br/>which length is related to an arbitrary value<br/>(here: how informations has been provided)",
 					"legend": "Provided informations"
 				}
    }

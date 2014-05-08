@@ -3,7 +3,7 @@ var jsonFile = "timeline/divertimento_e_ristoro_-_timeline.json";
 
 // "visualize(data)" function signature is by convention
 function visualize(data) {
-var width = 500;
+var width = 450;
 
 var colorScale = d3.scale.ordinal()
 	//		 purple,   	pink,     	light blue, blue, 		dark green, bordeaux, 	red,		black
@@ -57,7 +57,7 @@ chart = d3
 	});
 
 var svg = d3.select("#out").append("svg")
-	.attr("width", width*3)
+	.attr("width", width*2)
 	.datum(data).call(chart);
 }
       

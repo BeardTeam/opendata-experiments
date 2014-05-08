@@ -23,8 +23,8 @@ text {
 				<div class="pure-menu pure-menu-open">
 	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
 				  <ul>
-				    <li><a href="#">Home</a></li>
-				    <li><a id="about" href="#"></a></li>
+				    <li><a href="index.html">Home</a></li>
+				    <li><a id="about" href="about.html"></a></li>
 				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
 				  </ul>
 				</div>
@@ -34,6 +34,7 @@ text {
 				    <h1>OpenDataExperiment</h1>
 				    <h3 id="header_h3"></h3>
 				    <h4 id="header_h4"></h4>
+				    <h5 id="header_h5"></h5>
 				</div>
 			<div id="content" class="content">
 			</div>
@@ -99,7 +100,7 @@ function classes(root) {
 d3.select(self.frameElement).style("height", diameter + "px");
 </script>
 
-<!-- to be included always - start -->
+			<!-- to be included always - start -->
 	  <script src="js/core.js"></script>
 	  <script src="js/ui.js"></script>
 			<!-- to be included always - end -->
@@ -108,13 +109,13 @@ d3.select(self.frameElement).style("height", diameter + "px");
   	var labelsMap = {
 				it: {
 				  "header_h3": "PalerMobile con D3",
-				  "header_h4": "Hierarchical bar chart",
-				  "legend": ""
+				  "header_h4": "Bubble bar chart",
+				  "header_h5": "Luoghi, locali e attività di Palermo visualizzati tramite un diagramma a bolle bidimensionale<br/>(area+colore delle circonferenze)"
 				},
 				'default': {
 					"header_h3": "PalerMobile using D3",
-					"header_h4": "Hierarchical bar chart",
-					"legend": ""
+					"header_h4": "Bubble bar chart",
+					"header_h5": "Places at Palermo, showed by a bubble chart, where 2 dimensions are represented by color and circles size"
 				}
    }
    setTranslateLabels(getLanguage(),labelsMap);

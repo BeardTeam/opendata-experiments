@@ -36,8 +36,8 @@
 				<div class="pure-menu pure-menu-open">
 	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
 				  <ul>
-				    <li><a href="#">Home</a></li>
-				    <li><a id="about" href="#"></a></li>
+				    <li><a href="index.html">Home</a></li>
+				    <li><a id="about" href="about.html"></a></li>
 				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
 				  </ul>
 				</div>
@@ -47,6 +47,7 @@
 				    <h1>OpenDataExperiment</h1>
 				    <h3 id="header_h3"></h3>
 				    <h4 id="header_h4"></h4>
+				    <h5 id="header_h5"></h5>
 				</div>
 			<div id="content" class="content">
 			</div>
@@ -74,11 +75,13 @@
 		  	var labelsMap = {
 						it: {
 						  "header_h3": "PalerMobile con D3",
-						  "header_h4": "Orari di apertura interattivo"
+						  "header_h4": "Orari di apertura interattivo",
+						  "header_h5": "Grafico a barre orizzontali interattivo, che mostra gli orari di apertura/chiusura dei luoghi di divertimento/ristoro a Palermo.<br/>La barra verticale rossa ammette gestures 'to-left'/'to-right', permettendo di filtrare i risultati.<br/>Il gesture 'click' sulle righe orizzontali conduce ad una mappa geolocalizzata del luogo in oggetto"
 						},
 						'default': {
 							"header_h3": "PalerMobile using D3",
-							"header_h4": "Interactive openhours"			  
+							"header_h4": "Interactive openhours",
+							"header_h5": "Horizontal bar chart, interactive: it shows the opening/closing periods for amusement/food Palermo's places.<br/>The red vertical bar handles 'to-left'/'to-right' gestures, allowing to filter results.<br/>The 'click' gesture on horizontal lines bring the focus to a geolocalized map with place's marker."
 						}
 		   }
 		   setTranslateLabels(getLanguage(),labelsMap);

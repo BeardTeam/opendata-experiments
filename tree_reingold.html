@@ -1,0 +1,135 @@
+<html>
+<head>
+<meta charset="utf-8">
+
+	<!-- 	to be included always - start -->
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+	<link rel="stylesheet" href="css/side-menu.css"></link>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- 	to be included always - end -->
+
+<style>
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.node {
+  font: 10px sans-serif;
+}
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+#core {
+	margin-left: -10%;
+}
+</style>
+</head>
+<body>
+
+<!-- to be included always - start -->
+ <div id="layout">
+   <div id="menu">
+				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+				<div class="pure-menu pure-menu-open">
+	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
+				  <ul>
+				    <li><a href="index.html">Home</a></li>
+				    <li><a id="about" href="about.html"></a></li>
+				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				  </ul>
+				</div>
+      </div>
+      <div id="main">
+				<div class="header">
+				    <h1>OpenDataExperiment</h1>
+				    <h3 id="header_h3"></h3>
+				    <h4 id="header_h4"></h4>
+				    <h5 id="header_h5"></h5>
+				</div>
+			<div id="content" class="content">
+			</div>
+		</div>
+	</div>
+<!-- to be included always - end -->
+
+			<div id="core">
+	  	<div id="legend"></div>
+	   <div id="chart"></div>
+   </div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var width = 960,
+height = 2000;
+
+var tree = d3.layout.tree()
+.size([height, width - 160]);
+
+var diagonal = d3.svg.diagonal()
+.projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("#chart").append("svg")
+.attr("width", width)
+.attr("height", height)
+.append("g")
+.attr("transform", "translate(40,0)");
+
+d3.json("data/totaleConGerarchiaTipi.json", function(error, json) {
+var nodes = tree.nodes(json),
+  links = tree.links(nodes);
+
+var link = svg.selectAll("path.link")
+  .data(links)
+.enter().append("path")
+  .attr("class", "link")
+  .attr("d", diagonal);
+
+var node = svg.selectAll("g.node")
+  .data(nodes)
+.enter().append("g")
+  .attr("class", "node")
+  .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+
+node.append("circle")
+  .attr("r", 4.5);
+
+node.append("text")
+  .attr("dx", function(d) { return d.children ? -8 : 8; })
+  .attr("dy", 3)
+  .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
+  .text(function(d) { return d.name; });
+});
+
+d3.select(self.frameElement).style("height", height + "px");
+var newHeight = height + 100;
+d3.select("svg").style("height", newHeight + "px");
+</script>
+
+   <!-- to be included always - start -->
+	  <script src="js/core.js"></script>
+	  <script src="js/ui.js"></script>
+			<!-- to be included always - end -->
+			<!-- localization labels map - start -->  
+  	<script type="text/javascript">
+  	var labelsMap = {
+				it: {
+				  "header_h3": "PalerMobile con D3",
+				  "header_h4": "Tree Reingold Chart",
+				  "header_h5": "Luoghi, locali e attività di Palermo visualizzati gerarchicamente utilizzando l'algoritmo Reingold-Tilford per disporre i nodi tramite un albero"
+				},
+				'default': {
+					"header_h3": "PalerMobile using D3",
+					"header_h4": "Tree Reingold Chart",
+					"header_h5": "Places at Palermo, showed hierarchicaly using Reingold-Tilford algorithm in order to achieve a tree nodes placement"
+				}
+   }
+   setTranslateLabels(getLanguage(),labelsMap);
+  </script>
+		<!-- localization labels map - end -->
+
+</body>
+</html>

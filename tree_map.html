@@ -1,0 +1,158 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<!-- 	to be included always - start -->
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+	<link rel="stylesheet" href="css/side-menu.css"></link>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- 	to be included always - end -->
+	
+<style>
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
+}
+form {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.node {
+  border: solid 1px white;
+  font: 10px sans-serif;
+  line-height: 12px;
+  overflow: hidden;
+  position: absolute;
+  text-indent: 2px;
+}
+
+#core {
+	margin: 2% 0 0 -10%;
+}
+#legend {
+		margin-left: 5%;
+}
+</style>
+</head>
+<body>
+
+<!-- to be included always - start -->
+ <div id="layout">
+   <div id="menu">
+				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+				<div class="pure-menu pure-menu-open">
+	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
+				  <ul>
+				    <li><a href="index.html">Home</a></li>
+				    <li><a id="about" href="about.html"></a></li>
+				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				  </ul>
+				</div>
+      </div>
+      <div id="main">
+				<div class="header">
+				    <h1>OpenDataExperiment</h1>
+				    <h3 id="header_h3"></h3>
+				    <h4 id="header_h4"></h4>
+				    <h5 id="header_h5"></h5>
+				</div>
+			<div id="content" class="content">
+			</div>
+		</div>
+	</div>
+<!-- to be included always - end -->
+
+		<div id="core">
+	  	<div id="legend"></div>
+	   
+	   <div id="form">
+		   <form>
+					  <label><input type="radio" name="mode" value="size" checked> Size</label>
+					  <label><input type="radio" name="mode" value="count"> Count</label>
+					</form>
+				</div>
+				<div id="chart"></div>
+   </div>
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+var margin = {top: 40, right: 10, bottom: 10, left: 10},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var color = d3.scale.category20c();
+
+var treemap = d3.layout.treemap()
+    .size([width, height])
+    .sticky(true)
+    .value(function(d) { return d.size; });
+
+var div = d3.select("#chart").append("div")
+    .style("position", "relative")
+    .style("width", (width + margin.left + margin.right) + "px")
+    .style("height", (height + margin.top + margin.bottom) + "px")
+    .style("left", margin.left + "px")
+    .style("top", margin.top + "px");
+
+d3.json("data/totaleConGerarchiaTipi2.json", function(error, root) {
+  var node = div.datum(root).selectAll(".node")
+      .data(treemap.nodes)
+    		.enter().append("div")
+      .attr("class", "node")
+      .call(position)
+      .style("background", function(d) { return d.children ? color(d.name) : null; })
+      .text(function(d) { return d.children ? null : d.name; });
+
+  d3.selectAll("input").on("change", function change() {
+    var value = this.value === "count"
+        ? function() { return 1; }
+        : function(d) { return d.size; };
+
+    node
+       .data(treemap.value(value).nodes)
+     		.transition()
+       .duration(1500)
+       .call(position);
+  });
+});
+
+function position() {
+  this.style("left", function(d) { return d.x + "px"; })
+      .style("top", function(d) { return d.y + "px"; })
+      .style("width", function(d) { return Math.max(0, d.dx - 1) + "px"; })
+      .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
+}
+</script>
+
+<!-- to be included always - start -->
+	  <script src="js/core.js"></script>
+	  <script src="js/ui.js"></script>
+			<!-- to be included always - end -->
+			<!-- localization labels map - start -->  
+  	<script type="text/javascript">
+  	var labelsMap = {
+				it: {
+				  "header_h3": "PalerMobile con D3",
+				  "header_h4": "Tree Map Chart",
+				  "header_h5": "Luoghi, locali e attività di Palermo visualizzati in una area partizionata, e raggruppati con un'associazione tipo<->colore<br/>Il tipo di raggruppamento è modificabile tramite form objects"
+				},
+				'default': {
+					"header_h3": "PalerMobile using D3",
+					"header_h4": "Tree Map Chart",
+					"header_h5": "Places at Palermo, showed in partitioned areas, grouped by a color<->type map.<br/>Grouping is editable by form objects."
+				}
+   }
+   setTranslateLabels(getLanguage(),labelsMap);
+  </script>
+		<!-- localization labels map - end -->
+		<script type="text/javascript">
+			$('#form').css('position','relative').css('left', -550 );
+		</script>
+		
+</body>
+</html>

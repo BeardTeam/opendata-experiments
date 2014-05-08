@@ -1,11 +1,11 @@
 #core {
- 	margin-left: -20%;
+ 	margin-left: -10%;
 }
-#chart {  
+/*#chart {  
 /*   height: 406px; */
 /* 	width = 1000px; */
 /*   clear: both; */
-}
+}*/
 #tooltip {
 		clear: both;
 		margin-left: 2%;
@@ -44,6 +44,9 @@ text {
  	min-height: 600px;
  	float:both;
 }*/
+.chart_legend {
+		margin-left: 40%;
+}
 svg {
 	min-width: 50%;
 }

@@ -8,6 +8,7 @@ var dataFile = "multidimensional_timeline/data/italiani_popolazione_reddito_occu
 
 // var firstYear = 1809;
 var firstYear = 1994;
+var legendFirstYear = firstYear + 1;
 //var lastYear = 2008;
 var lastYear = 2012;
 //var duration = 30000;
@@ -266,11 +267,11 @@ d3.json(dataFile, function(data) {
 	
 	//draw legend
 	var legend = svg
-		.selectAll(".legend")
-		.data(interpolateData(firstYear))
+		.selectAll(".chart_legend")
+		.data(interpolateData(legendFirstYear))
 		.enter()
 		.append("g")
-		.attr("class", "legend")
+		.attr("class", "chart_legend")
 		.attr("transform", function(d, i) { 
 			return "translate(0," + i * 20 + ")";
 		});
@@ -317,26 +318,39 @@ d3.json(dataFile, function(data) {
 		});
 	
 	function clearUselessLegendLabel(legend) {
-		d3.selectAll('.legend').each(function(d,i){
+		d3.selectAll('.chart_legend').each(function(d,i){
 			var g = this;
 			var text = g.childNodes[0];
-			var content = text.textContent;
-			var rect = g.childNodes[1];
-			var style = rect.attributes[3];
-			var value = style.nodeValue;
-			
-			if (value.indexOf("rgb") < 1 || content == "") {
-				this.remove();
-			}
-			/*else {
-				legendLabelsToClear.push[this];
+//			console.log(g);
+//			try {
+//			console.log(i);
+
+//			if (text !== undefined ) {
+				var content = text.textContent;
+//				var rect = g.childNodes[1];
+//				var style = rect.attributes[3];
+//				var value = style.nodeValue;
+//				console.log(content);
+				
+				if (/*value.indexOf("rgb") < 1 ||*/ content == "") {
+					this.remove();
+				}
+//			}
+			/*} catch(e) {
+				console.log(e);
 			}*/
 		});
 	}
 	clearUselessLegendLabel(legend);
+	/*try {
+		clearUselessLegendLabel(legend);
+	} catch(e) {
+		console.log(e);
+		clearUselessLegendLabel(legend);
+	}*/
 	
 	svg
-	.selectAll(".legend")	
+	.selectAll(".chart_legend")	
 	.attr("transform", function(d, i) { 
 		return "translate(0," + i * 20 + ")";
 	});

@@ -24,12 +24,12 @@ path.link {
   stroke-width: 1.5px;
 }
 
-#core {
-	margin-left: -10%;
+/*#core {
+	margin-left: -1%;
 }
 #legend {
-	margin: 3% 0 0 3%;
-}
+	margin: % 0 0 0%;
+}*/
 </style>
 </head>
 <body>
@@ -41,8 +41,8 @@ path.link {
 				<div class="pure-menu pure-menu-open">
 	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
 				  <ul>
-				    <li><a href="#">Home</a></li>
-				    <li><a id="about" href="#"></a></li>
+				    <li><a href="index.html">Home</a></li>
+				    <li><a id="about" href="about.html"></a></li>
 				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
 				  </ul>
 				</div>
@@ -52,6 +52,7 @@ path.link {
 				    <h1>OpenDataExperiment</h1>
 				    <h3 id="header_h3"></h3>
 				    <h4 id="header_h4"></h4>
+				    <h5 id="header_h5"></h5>
 				</div>
 			<div id="content" class="content">
 			</div>
@@ -218,12 +219,12 @@ function color(d) {
 				it: {
 				  "header_h3": "PalerMobile con D3",
 				  "header_h4": "Collapsible indented tree chart",
-				  "legend": "Luoghi, locali e attività di Palermo visualizzati gerarchicamente tramite un albero indentato espandibile"
+				  "header_h5": "Luoghi, locali e attività di Palermo visualizzati gerarchicamente tramite un albero indentato espandibile"
 				},
 				'default': {
 					"header_h3": "PalerMobile using D3",
 					"header_h4": "Collapsible indented tree chart",
-					"legend": "Places at Palermo, showed by a collapsible indented tree"
+					"header_h5": "Places at Palermo, showed by a collapsible indented tree"
 				}
    }
    setTranslateLabels(getLanguage(),labelsMap);

@@ -28,8 +28,8 @@
 				<div class="pure-menu pure-menu-open">
 	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
 				  <ul>
-				    <li><a href="#">Home</a></li>
-				    <li><a id="about" href="#"></a></li>
+				    <li><a href="index.html">Home</a></li>
+				    <li><a id="about" href="about.html"></a></li>
 				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
 				  </ul>
 				</div>
@@ -39,6 +39,7 @@
 				    <h1>OpenDataExperiment</h1>
 				    <h3 id="header_h3"></h3>
 				    <h4 id="header_h4"></h4>
+				    <h5 id="header_h5"></h5>
 				</div>
 			<div id="content" class="content">
 			</div>
@@ -73,12 +74,12 @@
 				it: {
 				  "header_h3": "PalerMobile con D3",
 				  "header_h4": "Timeline Interattiva",
-				  "side_label": "Auto di Palermo<br/><font color='red'>Circolanti</font> vs <font color='green'>Immatricolate</font><br/>nel periodo 1999-2011"
+				  "header_h5": "Grafico a barre orizzontali mostrante l'intervallo di apertura/chiusura dei luoghi di ristoro e divertimento di Palermo.<br/>Il gesture 'click' fornisce una vista geolocalizzata del luogo su una mappa."
 				},
 				'default': {
 					"header_h3": "PalerMobile using D3",
 					"header_h4": "Interactive timeline",
-					"side_label": "Cars at Palermo<br/><font color='red'>Moving</font> vs <font color='green'>Registered</font><br/>between 1999 and 2011"			  
+					"header_h5": "Horizontal bar charts showing opening/closing period for amusement/food Palermo's places.<br/>The 'click' gesture provides a geolocalized view on a map."			  
 				}
    }
    setTranslateLabels(getLanguage(),labelsMap);
@@ -86,8 +87,8 @@
 		<!-- localization labels map - end -->
   
   <script type="text/javascript">
-    $('#core').css('border','1px solid black');
-    $('.content').css('max-width','1500px').css('text-align','center');
+    $('#core').css('border','1px solid black').css('margin-top','2%');
+    $('.content').css('max-width','950px').css('text-align','center');
   </script>
 	
 </body>

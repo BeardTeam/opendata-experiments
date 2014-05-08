@@ -88,7 +88,7 @@ appears on the left side of the page.
 #menu {
     margin-left: -150px; /* "#menu" width */
     width: 100%;
-    max-width: 230px;
+    max-width: 210px;
     position: fixed;
     top: 0;
     left: 0;
@@ -101,10 +101,11 @@ appears on the left side of the page.
     /*
     All anchors inside the menu should be styled like this.
     */
+    /* side menu */
     #menu a {
         color: #999;
         border: none;
-        padding: 0.6em 0 0.6em 0.6em;
+        padding: 0.4em 0 0.4em 0.4em;
     }
 
     /*
