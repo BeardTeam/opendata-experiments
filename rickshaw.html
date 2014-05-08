@@ -1,0 +1,192 @@
+<html>
+  <head>
+    <!-- using http://code.shutterstock.com/rickshaw/ -->
+    <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css">
+    <link type="text/css" rel="stylesheet" href="rickshaw/css/graph.css">
+    <link type="text/css" rel="stylesheet" href="rickshaw/css/detail.css">
+    <link type="text/css" rel="stylesheet" href="rickshaw/css/legend.css">
+    <link type="text/css" rel="stylesheet" href="rickshaw/css/extensions.css">
+    
+    <!-- 	to be included always - start -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+    <link rel="stylesheet" href="css/side-menu.css"></link>
+    <!-- 	to be included always - end -->
+
+    <script src="rickshaw/js/d3.v3.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script>jQuery.noConflict();</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
+
+    <script src="rickshaw/js/rickshaw/Rickshaw.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Class.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Compat.ClassList.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Renderer.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Renderer.Area.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Renderer.Line.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Renderer.Bar.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Renderer.ScatterPlot.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Renderer.Stack.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.RangeSlider.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.RangeSlider.Preview.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.HoverDetail.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Annotate.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Legend.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Axis.Time.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Behavior.Series.Toggle.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Behavior.Series.Order.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Behavior.Series.Highlight.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Smoother.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Fixtures.Time.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Fixtures.Time.Local.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Fixtures.Number.js"></script>
+<!-- 	<script src="rickshaw/js/rickshaw/Rickshaw.Fixtures.RandomData.js"></script> -->
+    <script src="rickshaw/js/rickshaw/Rickshaw.Fixtures.Color.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Color.Palette.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Axis.Y.js"></script>
+    <script src="rickshaw/js/rickshaw/Rickshaw.Graph.Axis.X.js"></script>
+
+    <script src="rickshaw/js/extensions.js"></script>
+	
+    <style type="text/css">
+      #core {
+/* 	margin-left: -1%;  */
+/* 	margin-right: 10%; */
+	max-width:960px;
+      }
+      #timeline {
+ 	max-width: 700px;
+	height: auto;
+      }
+      #side_panel {
+/* 	min-width:  100px; */
+	margin-left: -20%;
+      }
+      #side_panel_container {
+	max-width: 10%;
+	margin-left: -20%;
+      }
+      #chart_container {
+/* 	max-width: 90%; */
+	margin-top: -60%;
+	margin-left: 19%;
+      }
+    </style>
+  </head>
+  <body>
+<!-- to be included always - start -->
+    <div id="layout">
+      <div id="menu">
+				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+				<div class="pure-menu pure-menu-open">
+	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
+				  <ul>
+				    <li><a href="#">Home</a></li>
+				    <li><a id="about" href="#"></a></li>
+				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				  </ul>
+				</div>
+      </div>
+      <div id="main">
+				<div class="header">
+				    <h1>OpenDataExperiment</h1>
+				    <h3 id="header_h3"></h3>
+				    <h4 id="header_h4"></h4>
+				</div>
+			<div id="content" class="content">
+			</div>
+		</div>
+	</div>
+<!-- to be included always - end -->
+<!-- start core -->
+			  <div id="core" class="sample">
+			    <div id="side_panel_container">
+				    <form id="side_panel">
+				      <h5 id="side_label"></h5>
+				      <section><div id="legend"></div></section>
+				      <section>
+								<div id="renderer_form" class="toggler">
+								  <input type="radio" name="renderer" id="area" value="area" checked>
+								  <label for="area">area</label>
+								  <input type="radio" name="renderer" id="bar" value="bar">
+								  <label for="bar">bar</label>
+								  <input type="radio" name="renderer" id="line" value="line">
+								  <label for="line">line</label>
+								  <input type="radio" name="renderer" id="scatter" value="scatterplot">
+								  <label for="scatter">scatter</label>
+								</div>
+				      </section>
+				      <section>
+								<div id="offset_form">
+								  <label for="stack">
+								    <input type="radio" name="offset" id="stack" value="zero">
+								    <span>stack</span>
+								  </label>
+								  <label for="stream">
+								    <input type="radio" name="offset" id="stream" value="wiggle">
+								    <span>stream</span>
+								  </label>
+								  <label for="pct">
+								    <input type="radio" name="offset" id="pct" value="expand">
+								    <span>pct</span>
+								  </label>
+								  <label for="value">
+								    <input type="radio" name="offset" id="value" value="value" checked>
+								    <span>value</span>
+								  </label>
+								</div>
+								<div id="interpolation_form">
+								  <label for="cardinal">
+								    <input type="radio" name="interpolation" id="cardinal" value="cardinal" >
+								    <span>cardinal</span>
+								  </label>
+								  <label for="linear">
+								    <input type="radio" name="interpolation" id="linear" value="linear" checked>
+								    <span>linear</span>
+								  </label>
+								  <label for="step">
+								    <input type="radio" name="interpolation" id="step" value="step-after">
+								    <span>step</span>
+								  </label>
+								</div>
+				      </section>
+				      <section>
+								<h6>Smoothing</h6>
+								<div id="smoother"></div>
+				      </section>
+				      <section></section>
+				    </form>
+		    	</div>
+			    <div id="chart_container">
+			      <div id="chart"></div>
+			      <div id="timeline"></div>
+			      <div id="preview"></div>
+			    </div>
+				</div>
+<!-- end core -->
+
+  <script type="text/javascript" src="rickshaw/core.js"></script>
+  
+<!-- to be included always - start -->
+  <script src="js/core.js"></script>
+  <script src="js/ui.js"></script>
+<!-- to be included always - end -->
+<!-- localization labels map - start -->  
+  <script type="text/javascript">
+  	var labelsMap = {
+				it: {
+				  "header_h3": "Palermo OpenData con RickShaw",
+				  "side_label": "Auto di Palermo<br/><font color='red'>Circolanti</font> vs <font color='green'>Immatricolate</font><br/>nel periodo 1999-2011"
+				},
+				'default': {
+					"header_h3": "Palermo OpenData using RickShaw",
+					"side_label": "Cars at Palermo<br/><font color='red'>Moving</font> vs <font color='green'>Registered</font><br/>between 1999 and 2011"			  
+				}
+   }
+   setTranslateLabels(getLanguage(),labelsMap);
+  </script>
+<!-- localization labels map - end -->
+</body>
+</html>

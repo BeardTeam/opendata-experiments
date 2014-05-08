@@ -1,0 +1,62 @@
+<html>
+  <head>
+  
+    <!-- 	to be included always - start -->
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+    <link rel="stylesheet" href="css/side-menu.css"></link>
+    <!-- 	to be included always - end -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <!-- to be included always - start -->
+    <div id="layout">
+      <div id="menu">
+				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+				<div class="pure-menu pure-menu-open">
+	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
+				  <ul>
+				    <li><a href="#">Home</a></li>
+				    <li><a id="about" href="#"></a></li>
+				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				  </ul>
+				</div>
+      </div>
+      <div id="main">
+				<div class="header">
+				    <h1>OpenDataExperiment</h1>
+				    <h3 id="header_h3"></h3>
+				    <h4 id="header_h4"></h4>
+				</div>
+			<div id="content" class="content">
+			</div>
+		</div>
+	</div>
+<!-- to be included always - end -->
+  	<div id="core">
+   	<div id="line_chart">
+	   		<iframe height=371 width=700 src="//docs.google.com/spreadsheets/d/1UhfLmSga0FVSzJq6i18gCL_2plwqR3nedzve0srgs0k/gviz/chartiframe?oid=1554155876" seamless frameborder=0 scrolling=no></iframe>
+	  	</div>
+	  </div>
+	  
+	  <!-- to be included always - start -->
+  	<script src="js/core.js"></script>
+  	<script src="js/ui.js"></script>
+			<!-- to be included always - end -->
+	  <!-- localization labels map - start -->  
+	  <script type="text/javascript">
+	  	var labelsMap = {
+					it: {
+					  "header_h3": "Palermo OpenData con GoogleCharts StackLines"
+					},
+					'default': {
+						"header_h3": "Palermo OpenData using GoogleCharts TimeLines"			  
+					}
+	   }
+	   setTranslateLabels(getLanguage(),labelsMap);
+	  </script>
+<!-- localization labels map - end -->
+	  
+  </body>
+</html>

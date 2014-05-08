@@ -1,0 +1,14 @@
+D3 (Data-Driven Documents) è una libreria javascript che permette la manipolazione nativa (inline) di dati strutturati secondo il modello DOM.
+La libreria usa un paradigma di sviluppo di tipo dichiarativo, e presenta una sintassi basata sul pattern chaining, strutturato su 3 fasi: (data) input, transform, (new data) output.
+
+IMMAGINE 1
+
+D3 vs :
+- CSS3: possibilità di aggiungere/rimuovere elementi dinamicamente, non solo di dare uno stile dinamicamente
+- JQuery: possibilità di di aggiungere/rimuovere elementi in base ai dati sui quali si fa match - i dati, inoltre, non sono caricati in una qualche variabile javascript più o meno globale, ma sono "agganciati" allo specifico nodo (html) nel quale saranno successivamente manipolati
+- XSLT: permette manipolazioni complesse, e visualizzazioni interattive e di vario tipo - oltre ad offrire una sintassi (semi)imperativa.
+
+IMMAGINE 2
+
+
+

@@ -1,0 +1,85 @@
+<html>
+<head>
+  <!-- http://techslides.com/demos/d3/d3-world-population-density.html -->
+  <meta charset="utf-8">
+  <title>OpenDataExperiment - Choropleth@PalermoOpenData</title>
+  
+  <!-- 	to be included always - start -->
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+  <link rel="stylesheet" href="css/side-menu.css"></link>
+  <!-- 	to be included always - end -->
+  
+  <link rel="stylesheet" href="choropleth/css/style.css"></link>
+  
+  <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.2.2/d3.v3.min.js"></script>
+  <script src="choropleth/js/topojson.v1.min.js"></script>
+  <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+</head>
+<body>
+
+<!-- to be included always - start -->
+	<div id="layout">
+ 	<div id="menu">
+				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+				<div class="pure-menu pure-menu-open">
+	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
+				  <ul>
+				    <li><a href="#">Home</a></li>
+				    <li><a id="about" href="#"></a></li>
+				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				  </ul>
+				</div>
+      </div>
+      <div id="main">
+				<div id="header" class="header">
+				    <h1>OpenDataExperiment</h1>
+				    <h3 id="header_h3"></h3>
+				    <h4 id="header_h4"></h4>
+				</div>
+			<div id="content" class="content">
+			</div>
+		</div>
+	</div>
+<!-- to be included always - end -->
+
+	<div id="core">
+		<div id="top" class="sample">
+		  <h3 id="top_h3"></h3>
+		</div>
+		<div id="legend"></div>
+		<div id="subtitle">
+		  <h4 id="subtitle_h4"></h4>
+		</div>
+		<div id="container"></div>
+		<div id="info"></div>
+	</div>
+
+ <script type="text/javascript" src="choropleth/js/intensity.js"></script>
+  
+  <!-- 	to be included always - start -->
+  <script src="js/core.js"></script>
+  <script src="js/ui.js"></script>
+  <!-- 	to be included always - end -->
+  <!-- localization labels map - start -->  
+  <script type="text/javascript">
+  	var labelsMap = {
+				it: {
+				  "header_h3": "Palermo OpenData con D3",
+				  "header_h4": "Mappa di intensità / Choropleth",
+				  "top_h3": "Affluenza dei turisti di nazionalità estera",
+				  "subtitle_h4": "La seguente mappa di intensità mostra l'affluenza  dei turisti stranieri nella città di Palermo:<br/>spostando il mouse su una nazione è possibile vedere ulteriori dettagli"
+				},
+				'default': {
+					"header_h3": "Palermo OpenData using D3",
+					"header_h4": "Intensity Map, aka Choropleth",
+					"top_h3": "Foreign tourists turnout",
+			  "subtitle_h4": "The following intensity map shows the tourists turnout from foreign countries in Palermo:<br/>you can see other details moving the mouse on a country"			  
+				}
+   }
+   setTranslateLabels(getLanguage(),labelsMap);
+  </script>
+		<!-- localization labels map - end -->
+	
+</body>
+</html>

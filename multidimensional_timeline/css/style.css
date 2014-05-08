@@ -1,0 +1,49 @@
+#core {
+ 	margin-left: -20%;
+}
+#chart {  
+/*   height: 406px; */
+/* 	width = 1000px; */
+/*   clear: both; */
+}
+#tooltip {
+		clear: both;
+		margin-left: 2%;
+}
+text {
+  font: 8pt sans-serif;
+}
+.dot {
+  stroke: #000;
+}
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.label {
+  fill: #777;
+}
+.year.label {
+  font: 300 70pt "Helvetica Neue";
+  fill: #ddd;
+}
+.year.label.active {
+  fill: #aaa;
+}
+.overlay {
+	fill: none;
+	pointer-events: all;
+	cursor: ew-resize;
+}
+.tooltip {
+	margin-top: 2%;
+	margin-left: -25%;
+}
+/*.content {
+ 	min-height: 600px;
+ 	float:both;
+}*/
+svg {
+	min-width: 50%;
+}

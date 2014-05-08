@@ -24,21 +24,21 @@ Add transition to containers so they can push in and out.
 This is the parent `<div>` that contains the menu and the content area.
 */
 #layout {
-    position: relative;
-    padding-left: 0;
+	position: relative;
+	padding-left: 0;
 }
-    #layout.active {
-        position: relative;
-        left: 150px;
-    }
-        #layout.active #menu {
-            left: 150px;
-            width: 150px;
-        }
+#layout.active {
+ position: relative;
+ left: 150px;
+}
+#layout.active #menu {
+ left: 150px;
+ width: 150px;
+}
 
-        #layout.active .menu-link {
-            left: 150px;
-        }
+#layout.active .menu-link {
+ left: 150px;
+}
 /*
 The content `<div>` is where all your content goes.
 */
@@ -75,6 +75,9 @@ The content `<div>` is where all your content goes.
     color: #888;
 }
 
+.menu_href {
+	font-size: 80%;
+}
 
 
 /*
@@ -84,7 +87,8 @@ appears on the left side of the page.
 
 #menu {
     margin-left: -150px; /* "#menu" width */
-    width: 150px;
+    width: 100%;
+    max-width: 230px;
     position: fixed;
     top: 0;
     left: 0;

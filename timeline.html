@@ -1,0 +1,94 @@
+<html>
+<head>
+	<title>OpenDataExperiment - OpenHours@PalerMobile</title>
+	
+	<!-- 	to be included always - start -->
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+	<link rel="stylesheet" href="css/side-menu.css"></link>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- 	to be included always - end -->
+	
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="timeline/d3-timeline/lib/d3.js" charset="utf-8"></script>
+	<script src="timeline/d3-timeline/src/d3-timeline.js"></script>
+	
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script type="text/javascript" src="js/smoothScrolling.js"></script>
+	<script type="text/javascript" src="js/checkField.js"></script>
+	
+	<link rel="stylesheet" href="timeline/css/style.css"></link>
+	<script src="timeline/js/core.js"></script>
+</head>
+<body>
+
+	<!-- to be included always - start -->
+ <div id="layout">
+   <div id="menu">
+				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+				<div class="pure-menu pure-menu-open">
+	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
+				  <ul>
+				    <li><a href="#">Home</a></li>
+				    <li><a id="about" href="#"></a></li>
+				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				  </ul>
+				</div>
+      </div>
+      <div id="main">
+				<div class="header">
+				    <h1>OpenDataExperiment</h1>
+				    <h3 id="header_h3"></h3>
+				    <h4 id="header_h4"></h4>
+				</div>
+			<div id="content" class="content">
+			</div>
+		</div>
+	</div>
+<!-- to be included always - end -->
+
+		<div id="core" class="sample">
+	  <div id="out"></div>
+	  <div id="hover">
+	    <div class="colored"></div>
+	    <div id="name"></div>
+	    <div id="scrolled_date"></div>      
+	  </div>
+	  <div id="map-canvas_timeline"></div>
+	</div>
+  
+  <script type="text/javascript" src="js/ajaxJsonLoader.js"></script>
+  <script type="text/javascript" src="js/map/palermobile-map.js"></script>
+  <script>
+    var palerMobileMap = new PalerMobileMap("map-canvas_timeline");
+    palerMobileMap.init();
+  </script>
+  
+  <!-- to be included always - start -->
+  <script src="js/core.js"></script>
+  <script src="js/ui.js"></script>
+		<!-- to be included always - end -->
+		<!-- localization labels map - start -->  
+  <script type="text/javascript">
+  	var labelsMap = {
+				it: {
+				  "header_h3": "PalerMobile con D3",
+				  "header_h4": "Timeline Interattiva",
+				  "side_label": "Auto di Palermo<br/><font color='red'>Circolanti</font> vs <font color='green'>Immatricolate</font><br/>nel periodo 1999-2011"
+				},
+				'default': {
+					"header_h3": "PalerMobile using D3",
+					"header_h4": "Interactive timeline",
+					"side_label": "Cars at Palermo<br/><font color='red'>Moving</font> vs <font color='green'>Registered</font><br/>between 1999 and 2011"			  
+				}
+   }
+   setTranslateLabels(getLanguage(),labelsMap);
+  </script>
+		<!-- localization labels map - end -->
+  
+  <script type="text/javascript">
+    $('#core').css('border','1px solid black');
+    $('.content').css('max-width','1500px').css('text-align','center');
+  </script>
+	
+</body>
+</html>

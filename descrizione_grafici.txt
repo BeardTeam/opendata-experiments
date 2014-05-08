@@ -1,0 +1,22 @@
+Choropleth map: dal greco "xoro" (area) e "pletòs" (moltitudine), questo grafico visualizza misure numeriche su una cartografia, mappando l'intervallo dei valori ad un range di colori. In questo caso l'intervallo numerico è Min-Max, e quindi il range dei colori va dal bianco ad un colore scuro. È spesso utilizzata per visualizzare dati geopolitici (risultati di elezioni, ecc). È anche conosciuta come "mappa tematica" e "mappa d'intensità".
+Il demo riporta l'affluenza dei turisti stranieri nella città di Palermo, relativamente all'anno 2011.
+
+Timeline: è un grafico a barre orizzontali, ma il cui intervallo è non già un tipico "0-ValoreMax", ma "orario di apertura - orario di chiusura" dell'attività commerciale riportata come label. Permette di visualizzare velocemente non solo se talune attività siano aperte ad un orario arbitrario, ma anche quali siano le attività che effettuano maggiore esercizio. Una funzione aggiuntiva per questo demo permette di geolocalizzare l'attività in oggetto su una mappa, con un marker e infowindow relativi.
+Il demo utilizza i dati di PalerMobile (http://palermobile.esy.es), mobile/web app sviluppata a partire da alcuni dataset open forniti dal comune di Palermo: in particolare, sono riportati gli orari di apertura/chiusura delle attività catalogate come "divertimento" e "ristoro".
+
+OpenHours: è visualizzazione interattiva, tramite linee orizzontali, degli orari di apertura/chiusura di attività commerciali, la cui funzionalità di interazione è fornita da una vertical bar che permette di filtrare i risultati in base all'orario. Anche in questo caso è stata aggiunta una funzione di geolocalizzazione.
+Il demo utilizza i dati di PalerMobile (http://palermobile.esy.es), mobile/web app sviluppata a partire da alcuni dataset open forniti dal comune di Palermo: in particolare, sono riportati gli orari di apertura/chiusura delle attività catalogate come "divertimento" e "ristoro".
+
+RickShaw: è un'estensione di D3, sviluppata da Shutterstock.com, e permette di ottenere classici grafici "stacked", ma la cui visualizzazione (bar, line, scatter, etc) è modificabile a runtime tramite alcuni form objects. Inoltre, mostra una terza dimensione (oltre le X e Y) tramite un "mouseover" sul grafico medesimo.
+Il demo utilizza un dataset (opendata) fornito dal Comune di Palermo, riportante il numero di auto circolanti e immatricolate tra il 1995 e il 2011.
+
+Google Stacklines: stackline fornito da GoogleChart, con una terza dimensione mostrata tramite "hover" sul grafico
+Il demo utilizza un dataset (opendata) fornito dal Comune di Palermo, riportante il numero di auto circolanti e immatricolate tra il 1995 e il 2011.
+
+Google Timeline: uno stackline interattivo, che mostra una terza dimensione visualizzabile tramite etichette "hover", e permette lo zoom sulla dimensione delle ascisse (rappresentante il tempo).
+Il demo utilizza un dataset (opendata) fornito dal Comune di Palermo, riportante il numero di auto circolanti e immatricolate tra il 1995 e il 2011.
+
+
+MultiDimensionalTimeline: è una timeline multidimensione, visualizzante circonferenze colorate su un grafico cartesiano bidimensionale. Gli assi delle ascisse e delle ordinate sono due delle dimensioni disponibili, cui si aggiunge il tempo (inteso come evoluzione del sistema), mostrato tramite animazione interattiva, una terza dimensione associata al raggio delle circonferenze, e infine una categoria di appartenenza delle entità riportate, per le quali si utilizza un range di colori.
+Il demo utilizza due dataset forniti dall'ISTAT: il primo riporta i redditi e l'andamento demografico degli italiani nel periodo 1995-2011; il secondo riporta il numero di occupati, nel medesimo periodo.
+

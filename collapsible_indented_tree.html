@@ -1,0 +1,234 @@
+<html>
+<head>
+<meta charset="utf-8">
+	<!-- 	to be included always - start -->
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+	<link rel="stylesheet" href="css/side-menu.css"></link>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- 	to be included always - end -->
+<style>
+.node rect {
+  cursor: pointer;
+  fill: #fff;
+  fill-opacity: .5;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+.node text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+path.link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
+}
+
+#core {
+	margin-left: -10%;
+}
+#legend {
+	margin: 3% 0 0 3%;
+}
+</style>
+</head>
+<body>
+
+<!-- to be included always - start -->
+ <div id="layout">
+   <div id="menu">
+				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+				<div class="pure-menu pure-menu-open">
+	  			<a class="pure-menu-heading" href="#">O.D.E.</a>
+				  <ul>
+				    <li><a href="#">Home</a></li>
+				    <li><a id="about" href="#"></a></li>
+				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				  </ul>
+				</div>
+      </div>
+      <div id="main">
+				<div class="header">
+				    <h1>OpenDataExperiment</h1>
+				    <h3 id="header_h3"></h3>
+				    <h4 id="header_h4"></h4>
+				</div>
+			<div id="content" class="content">
+			</div>
+		</div>
+	</div>
+<!-- to be included always - end -->
+
+	<div id="core">
+		<div id="legend"></div>
+		<div id="chart"></div>
+	</div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var margin = {top: 30, right: 20, bottom: 30, left: 20},
+    width = 960 - margin.left - margin.right,
+    barHeight = 20,
+    barWidth = width * .8;
+
+var i = 0,
+    duration = 400,
+    root;
+
+var tree = d3.layout.tree()
+    .nodeSize([0, 20]);
+
+var diagonal = d3.svg.diagonal()
+    .projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("#chart").append("svg")
+    .attr("width", width + margin.left + margin.right)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.json("data/totaleConGerarchiaTipi2.json", function(error, flare) {
+  flare.x0 = 0;
+  flare.y0 = 0;
+  update(root = flare);
+});
+
+function update(source) {
+
+  // Compute the flattened node list. TODO use d3.layout.hierarchy.
+  var nodes = tree.nodes(root);
+
+  var height = Math.max(500, nodes.length * barHeight + margin.top + margin.bottom);
+
+  d3.select("svg").transition()
+      .duration(duration)
+      .attr("height", height);
+
+  d3.select(self.frameElement).transition()
+      .duration(duration)
+      .style("height", height + "px");
+
+  // Compute the "layout".
+  nodes.forEach(function(n, i) {
+    n.x = i * barHeight;
+  });
+
+  // Update the nodes…
+  var node = svg.selectAll("g.node")
+      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  var nodeEnter = node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+      .style("opacity", 1e-6);
+
+  // Enter any new nodes at the parent's previous position.
+  nodeEnter.append("rect")
+      .attr("y", -barHeight / 2)
+      .attr("height", barHeight)
+      .attr("width", barWidth)
+      .style("fill", color)
+      .on("click", click);
+
+  nodeEnter.append("text")
+      .attr("dy", 3.5)
+      .attr("dx", 5.5)
+      .text(function(d) { return d.name; });
+
+  // Transition nodes to their new position.
+  nodeEnter.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+      .style("opacity", 1);
+
+  node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
+      .style("opacity", 1)
+    .select("rect")
+      .style("fill", color);
+
+  // Transition exiting nodes to the parent's new position.
+  node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .style("opacity", 1e-6)
+      .remove();
+
+  // Update the links…
+  var link = svg.selectAll("path.link")
+      .data(tree.links(nodes), function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("path", "g")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      })
+    .transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  // Transition links to their new position.
+  link.transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+}
+
+// Toggle children on click.
+function click(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+  update(d);
+}
+
+function color(d) {
+  return d._children ? "#3182bd" : d.children ? "#c6dbef" : "#fd8d3c";
+}
+
+</script>
+
+   <!-- to be included always - start -->
+	  <script src="js/core.js"></script>
+	  <script src="js/ui.js"></script>
+			<!-- to be included always - end -->
+			<!-- localization labels map - start -->  
+  	<script type="text/javascript">
+  	var labelsMap = {
+				it: {
+				  "header_h3": "PalerMobile con D3",
+				  "header_h4": "Collapsible indented tree chart",
+				  "legend": "Luoghi, locali e attività di Palermo visualizzati gerarchicamente tramite un albero indentato espandibile"
+				},
+				'default': {
+					"header_h3": "PalerMobile using D3",
+					"header_h4": "Collapsible indented tree chart",
+					"legend": "Places at Palermo, showed by a collapsible indented tree"
+				}
+   }
+   setTranslateLabels(getLanguage(),labelsMap);
+  </script>
+		<!-- localization labels map - end -->
+
+</body>
+</html>
