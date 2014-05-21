@@ -1,3 +1,40 @@
+/*******************************************************************************
+*Copyleft (c) 2014, "The BeardTeam" - https://github.com/BeardTeam/
+*
+*This file (palermobile-map.js) is part of ipc-d3,
+*	and developed by Massimiliano Leone
+*	<maximilianus@gmail.com> - http://plus.google.com/+MassimilianoLeone
+*
+*    palermobile-map.js is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU General Public License as published by
+*    the Free Software Foundation, either version 3 of the License, or
+*    (at your option) any later version.
+*
+*    palermobile-map.js is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU General Public License for more details.
+*
+*    You should have received a copy of the GNU General Public License
+*    along with .  If not, see <http://www.gnu.org/licenses/>.
+ ******************************************************************************/
+/**
+* This file (palermobile-map.js) is part of ipc-d3, and developed by: Massimiliano Leone - <maximilianus@gmail.com> - https://plus.google.com/+MassimilianoLeone.
+* Copyleft (c) 2014, "The BeardTeam" - https://github.com/BeardTeam/
+* 
+*     palermobile-map.js is free software: you can redistribute it and/or modify
+*     it under the terms of the GNU General Public License as published by
+*     the Free Software Foundation, either version 3 of the License, or
+*     (at your option) any later version.
+* 
+*     palermobile-map.js is distributed in the hope that it will be useful,
+*     but WITHOUT ANY WARRANTY; without even the implied warranty of
+*     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*     GNU General Public License for more details.
+* 
+*     You should have received a copy of the GNU General Public License
+*     along with .  If not, see <http://www.gnu.org/licenses/>.
+*/
 /**
  * @author "Massimiliano Leone - maximilianus@gmail.com"
  */
