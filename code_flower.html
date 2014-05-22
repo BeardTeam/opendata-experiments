@@ -97,14 +97,14 @@ line.link {
 	<!-- to be included always - end -->
 
 	<div id="core">
-		
+
 		<div id="flower_type">
 			<select onchange="handleSelect(this)">
-				<option value="soffione">soffione</option>
-				<option value="geranio">geranio</option>				
+				<option value="0" id="select_0"></option>
+				<option value="1" id="select_1"></option>
 			</select>
 		</div>
-		
+
 		<div id="visualization"></div>
 	</div>
 
@@ -133,9 +133,9 @@ line.link {
 		d3.json('data/totaleConGerarchiaTipi2.json', createCodeFlower);
 		
 		function handleSelect(sel) {
-			if (sel.value === "soffione")
+			if (sel.value === "0")
 				d3.json('data/totaleConGerarchiaTipi2.json', createCodeFlower);
-			else if (sel.value === "geranio")
+			else if (sel.value === "1")
 				d3.json('data/totaleConGerarchiaTipi.json', createCodeFlower);
 		}
 	</script>
@@ -150,12 +150,16 @@ line.link {
 			it : {
 				"header_h3" : "PalerMobile con D3",
 				"header_h4" : "Luoghi, locali e attività di Palermo visualizzati utilizzando 'CodeFlower', una rappresentazione animata a grafo.<br/>Il gesture 'hover' sulle foglie fornisce maggiori dettagli.",
-				"legend" : ""
+				"legend" : "",
+				"select_0": "soffione",
+				"select_1": "geranio"
 			},
 			'default' : {
 				"header_h3" : "PalerMobile using D3",
 				"header_h4" : "Places at Palermo, showed using 'CodeFlower', producing an animated graph looking as a flower.<br/>The 'hover' gesture on leafs provides more details.",
-				"legend" : ""
+				"legend" : "",
+				"select_0": "dandelion",
+				"select_1": "geranium"
 			}
 		}
 		setTranslateLabels(getLanguage(), labelsMap);
