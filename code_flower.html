@@ -20,129 +20,146 @@ This file (code_flower.html) is part of ipc-d3,
 -->
 <!DOCTYPE html>
 <html>
-  <!-- Use the Source, Luke -->
-  <head>
-    <title>CodeFlower Source code visualization</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    
-    <!-- 	to be included always - start -->
-				<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
-				<link rel="stylesheet" href="css/side-menu.css"></link>
-				<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-				<!-- 	to be included always - end -->
-    
+<!-- Use the Source, Luke -->
+<head>
+<title>CodeFlower Source code visualization</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<!-- 	to be included always - start -->
+<link rel="stylesheet"
+	href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+<link rel="stylesheet" href="css/side-menu.css"></link>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- 	to be included always - end -->
+
 <!--     <link type="text/css" rel="stylesheet" href="stylesheets/bootstrap.min.css"/> -->
 <!--     <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 <!--     <link href="stylesheets/bootstrap-responsive.min.css" rel="stylesheet"> -->
 <!--     <link href='http://fonts.googleapis.com/css?family=Rosario:400,700' rel='stylesheet' type='text/css'> -->
-    <link type="text/css" rel="stylesheet" href="stylesheets/style.css"/>
-    <style type="text/css">
+<link type="text/css" rel="stylesheet" href="stylesheets/style.css" />
+<style type="text/css">
 circle.node {
-  cursor: pointer;
-  stroke: #000;
-  stroke-width: .5px;
+		cursor: pointer;
+		stroke: #000;
+		stroke-width: .5px;
 }
 
 circle.node.directory {
-  stroke: #9ecae1;
-  stroke-width: 2px;
+		stroke: #9ecae1;
+		stroke-width: 2px;
 }
 
 circle.node.collapsed {
-  stroke: #555;
+		stroke: #555;
 }
 
 .nodetext {
-  fill: #252929;
-  font-weight: bold;
-  text-shadow: 0 0 0.2em white;
+		fill: #252929;
+		font-weight: bold;
+		text-shadow: 0 0 0.2em white;
 }
 
 line.link {
-  fill: none;
-  stroke: #9ecae1;
-  stroke-width: 1.5px;
+		fill: none;
+		stroke: #9ecae1;
+		stroke-width: 1.5px;
 }
 
 #core {
-	margin: 5%;
+		margin: 5%;
 }
-    </style>
-  </head>
-  <body>
-  
-  		<!-- to be included always - start -->
-			 <div id="layout">
-			   <div id="menu">
-							<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
-							<div class="pure-menu pure-menu-open">
-				  			<a class="pure-menu-heading" href="index.html">O.D.E.</a>
-							  <ul>
-							    <li><a href="index.html">Home</a></li>
-							    <li><a id="about" href="about.html"></a></li>
-							    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
-							  </ul>
-							</div>
-			      </div>
-			      <div id="main">
-							<div class="header">
-							    <h1>OpenDataExperiment</h1>
-							    <h3 id="header_h3"></h3>
-							    <h4 id="header_h4"></h4>
-							</div>
-						<div id="content" class="content">
-						</div>
-					</div>
-				</div>
-			<!-- to be included always - end -->
-  
-    <div id="core">
-     <div id="visualization"></div>
-    </div>
-    
-    <script type="text/javascript" src="javascripts/d3/d3.js"></script>
-    <script type="text/javascript" src="javascripts/d3/d3.geom.js"></script>
-    <script type="text/javascript" src="javascripts/d3/d3.layout.js"></script>
-    <script type="text/javascript" src="javascripts/CodeFlower.js"></script>
-    <script type="text/javascript" src="javascripts/dataConverter.js"></script>
-    <script type="text/javascript">
-      var currentCodeFlower;
-      var createCodeFlower = function(json) {
-        // update the jsonData textarea
-        //document.getElementById('jsonData').value = JSON.stringify(json);
-        // remove previous flower to save memory
-        if (currentCodeFlower) currentCodeFlower.cleanup();
-        // adapt layout size to the total number of elements
-        var total = countElements(json);
-        w = parseInt(Math.sqrt(total) * 23, 10);
-        h = parseInt(Math.sqrt(total) * 23, 10);
-        // create a new CodeFlower
-        currentCodeFlower = new CodeFlower("#visualization", w, h).update(json);
-      };
+</style>
+</head>
+<body>
 
-      d3.json('data/totaleConGerarchiaTipi2.json', createCodeFlower);
-    </script>
-    
-    <!-- to be included always - start -->
-		  <script src="js/core.js"></script>
-		  <script src="js/ui.js"></script>
-				<!-- to be included always - end -->
-				<!-- localization labels map - start -->  
-	  	<script type="text/javascript">
-		  	var labelsMap = {
-						it: {
-						  "header_h3": "PalerMobile con D3",
-						  "header_h4": "Luoghi, locali e attività di Palermo visualizzati utilizzando 'CodeFlower', una rappresentazione animata a grafo.<br/>Il gesture 'hover' sulle foglie fornisce maggiori dettagli.",
-						  "legend": ""
-						},
-						'default': {
-							"header_h3": "PalerMobile using D3",
-							"header_h4": "Places at Palermo, showed using 'CodeFlower', producing an animated graph looking as a flower.<br/>The 'hover' gesture on leafs provides more details.",
-							"legend": ""
-						}
-		   }
-		   setTranslateLabels(getLanguage(),labelsMap);
-	  	</script>
-				<!-- localization labels map - end -->
-  </body>
+	<!-- to be included always - start -->
+	<div id="layout">
+		<div id="menu">
+			<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+			<div class="pure-menu pure-menu-open">
+				<a class="pure-menu-heading" href="index.html">O.D.E.</a>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a id="about" href="about.html"></a></li>
+					<li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main">
+			<div class="header">
+				<h1>OpenDataExperiment</h1>
+				<h3 id="header_h3"></h3>
+				<h4 id="header_h4"></h4>
+			</div>
+			<div id="content" class="content"></div>
+		</div>
+	</div>
+	<!-- to be included always - end -->
+
+	<div id="core">
+		
+		<div id="flower_type">
+			<select onchange="handleSelect(this)">
+				<option value="soffione">soffione</option>
+				<option value="geranio">geranio</option>				
+			</select>
+		</div>
+		
+		<div id="visualization"></div>
+	</div>
+
+	<script type="text/javascript" src="javascripts/d3/d3.js"></script>
+	<script type="text/javascript" src="javascripts/d3/d3.geom.js"></script>
+	<script type="text/javascript" src="javascripts/d3/d3.layout.js"></script>
+	<script type="text/javascript" src="javascripts/CodeFlower.js"></script>
+	<script type="text/javascript" src="javascripts/dataConverter.js"></script>
+	<script type="text/javascript">
+		var currentCodeFlower;
+		var createCodeFlower = function(json) {
+			// update the jsonData textarea
+			//document.getElementById('jsonData').value = JSON.stringify(json);
+			// remove previous flower to save memory
+			if (currentCodeFlower)
+				currentCodeFlower.cleanup();
+			// adapt layout size to the total number of elements
+			var total = countElements(json);
+			w = parseInt(Math.sqrt(total) * 23, 10);
+			h = parseInt(Math.sqrt(total) * 23, 10);
+			// create a new CodeFlower
+			currentCodeFlower = new CodeFlower("#visualization", w, h)
+					.update(json);
+		};
+
+		d3.json('data/totaleConGerarchiaTipi2.json', createCodeFlower);
+		
+		function handleSelect(sel) {
+			if (sel.value === "soffione")
+				d3.json('data/totaleConGerarchiaTipi2.json', createCodeFlower);
+			else if (sel.value === "geranio")
+				d3.json('data/totaleConGerarchiaTipi.json', createCodeFlower);
+		}
+	</script>
+
+	<!-- to be included always - start -->
+	<script src="js/core.js"></script>
+	<script src="js/ui.js"></script>
+	<!-- to be included always - end -->
+	<!-- localization labels map - start -->
+	<script type="text/javascript">
+		var labelsMap = {
+			it : {
+				"header_h3" : "PalerMobile con D3",
+				"header_h4" : "Luoghi, locali e attività di Palermo visualizzati utilizzando 'CodeFlower', una rappresentazione animata a grafo.<br/>Il gesture 'hover' sulle foglie fornisce maggiori dettagli.",
+				"legend" : ""
+			},
+			'default' : {
+				"header_h3" : "PalerMobile using D3",
+				"header_h4" : "Places at Palermo, showed using 'CodeFlower', producing an animated graph looking as a flower.<br/>The 'hover' gesture on leafs provides more details.",
+				"legend" : ""
+			}
+		}
+		setTranslateLabels(getLanguage(), labelsMap);
+	</script>
+	<!-- localization labels map - end -->
+</body>
 </html>

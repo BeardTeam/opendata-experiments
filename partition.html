@@ -22,170 +22,170 @@ This file (partition.html) is part of ipc-d3,
 <!-- saved from url=(0057)http://mbostock.github.io/d3/talk/20111018/partition.html -->
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
-	<!-- 	to be included always - start -->
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
-	<link rel="stylesheet" href="css/side-menu.css"></link>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<!-- 	to be included always - end -->
-    
-    <link type="text/css" rel="stylesheet" href="./stylesheets/style.css">
-    <script type="text/javascript" src="./javascripts/d3/d3.js"></script><style type="text/css"></style>
-    <script type="text/javascript" src="./javascripts/d3/d3.layout.js"></script>
-    <style type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- 	to be included always - start -->
+<link rel="stylesheet"
+	href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"></link>
+<link rel="stylesheet" href="css/side-menu.css"></link>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- 	to be included always - end -->
+
+<link type="text/css" rel="stylesheet" href="./stylesheets/style.css">
+<script type="text/javascript" src="./javascripts/d3/d3.js"></script>
+<style type="text/css"></style>
+<script type="text/javascript" src="./javascripts/d3/d3.layout.js"></script>
+<style type="text/css">
 .chart {
-  display: block;
-  margin: auto;
-  margin-top: 60px;
-  font-size: 11px;
-}
-rect {
-  stroke: #eee;
-  fill: #aaa;
-  fill-opacity: .8;
-}
-rect.parent {
-  cursor: pointer;
-  fill: steelblue;
-}
-text {
-  pointer-events: none;
+		display: block;
+		margin: auto;
+		margin-top: 60px;
+		font-size: 11px;
 }
 
-#legend {					
+rect {
+		stroke: #eee;
+		fill: #aaa;
+		fill-opacity: .8;
+}
+
+rect.parent {
+		cursor: pointer;
+		fill: steelblue;
+}
+
+text {
+		pointer-events: none;
+}
+
+#legend {
 		margin: 1% 0 -6% 16%;
 }
-    </style>
-  </head>
-  <body>
-  
- <!-- to be included always - start -->
- <div id="layout">
-   <div id="menu">
-				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
-				<div class="pure-menu pure-menu-open">
-	  			<a class="pure-menu-heading" href="index.html">O.D.E.</a>
-				  <ul>
-				    <li><a href="index.html">Home</a></li>
-				    <li><a id="about" href="about.html"></a></li>
-				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
-				  </ul>
-				</div>
-      </div>
-      <div id="main">
-				<div class="header">
-				    <h1>OpenDataExperiment</h1>
-				    <h3 id="header_h3"></h3>
-				    <h4 id="header_h4"></h4>
-				    <h5 id="header_h5"></h5>
-				</div>
-			<div id="content" class="content">
+</style>
+</head>
+<body>
+
+	<!-- to be included always - start -->
+	<div id="layout">
+		<div id="menu">
+			<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+			<div class="pure-menu pure-menu-open">
+				<a class="pure-menu-heading" href="index.html">O.D.E.</a>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a id="about" href="about.html"></a></li>
+					<li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+				</ul>
 			</div>
 		</div>
+		<div id="main">
+			<div class="header">
+				<h1>OpenDataExperiment</h1>
+				<h3 id="header_h3"></h3>
+				<h4 id="header_h4"></h4>
+				<h5 id="header_h5"></h5>
+			</div>
+			<div id="content" class="content"></div>
+		</div>
 	</div>
-<!-- to be included always - end -->
-  
-  	<div id="core">
-	  	<div id="legend"></div>
-	   <div id="chart">    
-      
-	   </div>
-	   <div id="footer">
-        d3.layout.partition
-      </div>
-   </div>
-   <script type="text/javascript">
+	<!-- to be included always - end -->
 
-var w = 960,
-    h = 500,
-    x = d3.scale.linear().range([0, w]),
-    y = d3.scale.linear().range([0, h]);
+	<div id="core">
+		<div id="legend"></div>
+		<div id="chart"></div>
+	</div>
+	<script type="text/javascript">
+		var w = 960, h = 500, x = d3.scale.linear().range([ 0, w ]), y = d3.scale
+				.linear().range([ 0, h ]);
 
-var vis = d3.select("#chart").append("div")
-    .attr("class", "chart")
-    .style("width", w + "px")
-    .style("height", h + "px")
-  .append("svg:svg")
-    .attr("width", w)
-    .attr("height", h);
+		var vis = d3.select("#chart").append("div").attr("class", "chart")
+				.style("width", w + "px").style("height", h + "px").append(
+						"svg:svg").attr("width", w).attr("height", h);
 
-var partition = d3.layout.partition()
-    .value(function(d) { return d.size; });
+		var partition = d3.layout.partition().value(function(d) {
+			return d.size;
+		});
 
-d3.json("data/totaleConGerarchiaTipi2.json", function(root) {
-  var g = vis.selectAll("g")
-      .data(partition.nodes(root))
-    .enter().append("svg:g")
-      .attr("transform", function(d) { return "translate(" + x(d.y) + "," + y(d.x) + ")"; })
-      .on("click", click);
+		d3.json("data/totaleConGerarchiaTipi2.json", function(root) {
+			var g = vis.selectAll("g").data(partition.nodes(root)).enter()
+					.append("svg:g").attr("transform", function(d) {
+						return "translate(" + x(d.y) + "," + y(d.x) + ")";
+					}).on("click", click);
 
-  var kx = w / root.dx,
-      ky = h / 1;
+			var kx = w / root.dx, ky = h / 1;
 
-  g.append("svg:rect")
-      .attr("width", root.dy * kx)
-      .attr("height", function(d) { return d.dx * ky; })
-      .attr("class", function(d) { return d.children ? "parent" : "child"; });
+			g.append("svg:rect").attr("width", root.dy * kx).attr("height",
+					function(d) {
+						return d.dx * ky;
+					}).attr("class", function(d) {
+				return d.children ? "parent" : "child";
+			});
 
-  g.append("svg:text")
-      .attr("transform", transform)
-      .attr("dy", ".35em")
-      .style("opacity", function(d) { return d.dx * ky > 12 ? 1 : 0; })
-      .text(function(d) { return d.name; })
+			g.append("svg:text").attr("transform", transform).attr("dy",
+					".35em").style("opacity", function(d) {
+				return d.dx * ky > 12 ? 1 : 0;
+			}).text(function(d) {
+				return d.name;
+			})
 
-  d3.select(window)
-      .on("click", function() { click(root); })
+			d3.select(window).on("click", function() {
+				click(root);
+			})
 
-  function click(d) {
-    if (!d.children) return;
+			function click(d) {
+				if (!d.children)
+					return;
 
-    kx = (d.y ? w - 40 : w) / (1 - d.y);
-    ky = h / d.dx;
-    x.domain([d.y, 1]).range([d.y ? 40 : 0, w]);
-    y.domain([d.x, d.x + d.dx]);
+				kx = (d.y ? w - 40 : w) / (1 - d.y);
+				ky = h / d.dx;
+				x.domain([ d.y, 1 ]).range([ d.y ? 40 : 0, w ]);
+				y.domain([ d.x, d.x + d.dx ]);
 
-    var t = g.transition()
-        .duration(d3.event.altKey ? 7500 : 750)
-        .attr("transform", function(d) { return "translate(" + x(d.y) + "," + y(d.x) + ")"; });
+				var t = g.transition().duration(d3.event.altKey ? 7500 : 750)
+						.attr("transform", function(d) {
+							return "translate(" + x(d.y) + "," + y(d.x) + ")";
+						});
 
-    t.select("rect")
-        .attr("width", d.dy * kx)
-        .attr("height", function(d) { return d.dx * ky; });
+				t.select("rect").attr("width", d.dy * kx).attr("height",
+						function(d) {
+							return d.dx * ky;
+						});
 
-    t.select("text")
-        .attr("transform", transform)
-        .style("opacity", function(d) { return d.dx * ky > 12 ? 1 : 0; });
+				t.select("text").attr("transform", transform).style("opacity",
+						function(d) {
+							return d.dx * ky > 12 ? 1 : 0;
+						});
 
-    d3.event.stopPropagation();
-  }
+				d3.event.stopPropagation();
+			}
 
-  function transform(d) {
-    return "translate(8," + d.dx * ky / 2 + ")";
-  }
-});
-    </script>
-  
-			<!-- to be included always - start -->
-	  <script src="js/core.js"></script>
-	  <script src="js/ui.js"></script>
-			<!-- to be included always - end -->
-			<!-- localization labels map - start -->  
-  	<script type="text/javascript">
-  	var labelsMap = {
-				it: {
-				  "header_h3": "PalerMobile con D3",
-				  "header_h4": "Partition Chart",
-				  "header_h5": "Luoghi, locali e attività di Palermo visualizzati gerarchicamente tramite un'area partizionata, interattiva"
-				},
-				'default': {
-					"header_h3": "PalerMobile using D3",
-					"header_h4": "Partition Chart",
-					"header_h5": "Places at Palermo, showed by a interactive partitioned area"
-				}
-   }
-   setTranslateLabels(getLanguage(),labelsMap);
-  </script>
-		<!-- localization labels map - end -->
+			function transform(d) {
+				return "translate(8," + d.dx * ky / 2 + ")";
+			}
+		});
+	</script>
 
-</body></html>
+	<!-- to be included always - start -->
+	<script src="js/core.js"></script>
+	<script src="js/ui.js"></script>
+	<!-- to be included always - end -->
+	<!-- localization labels map - start -->
+	<script type="text/javascript">
+		var labelsMap = {
+			it : {
+				"header_h3" : "PalerMobile con D3",
+				"header_h4" : "Partition Chart",
+				"header_h5" : "Luoghi, locali e attività di Palermo visualizzati gerarchicamente tramite un'area partizionata, interattiva"
+			},
+			'default' : {
+				"header_h3" : "PalerMobile using D3",
+				"header_h4" : "Partition Chart",
+				"header_h5" : "Places at Palermo, showed by a interactive partitioned area"
+			}
+		}
+		setTranslateLabels(getLanguage(), labelsMap);
+	</script>
+	<!-- localization labels map - end -->
+
+</body>
+</html>
