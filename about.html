@@ -4,6 +4,7 @@ Copyleft (c) 2014, "The BeardTeam" - https://github.com/BeardTeam/
 This file (about.html) is part of ipc-d3,
 	and developed by Massimiliano Leone
 	<maximilianus@gmail.com> - http://plus.google.com/+MassimilianoLeone
+	as part of https://github.com/BeardTeam/opendata-experiments
 
     about.html is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -28,88 +29,88 @@ This file (about.html) is part of ipc-d3,
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
-				<style>
-/*					#legend {
-						margin: 2% 0 -4% 0;
-					}*/
-					#plus {
-						width: 960px;
-					}
-					.plus_widget {
-						float: left;
-						clear: none;
-					}
-				</style>
+	<style>
+/*		#legend {
+			margin: 2% 0 -4% 0;
+		}*/
+	  #plus {
+	    width: 960px;
+	  }
+	  .plus_widget {
+	    float: left;
+	    clear: none;
+	  }
+	  #header_h4 {
+	    text-align:center;
+	    font-size: larger;
+	    margin: 2em 0 2em 0;
+	  }
+	</style>
   </head>
   <body>
-    <!-- to be included always - start -->
+<!-- to be included always - start -->
     <div id="layout">
       <div id="menu">
-				<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
-				<div class="pure-menu pure-menu-open">
-	  			<a class="pure-menu-heading" href="index.html">O.D.E.</a>
-				  <ul>
-				    <li><a href="index.html">Home</a></li>
-				    <li><a id="about" href="about.html"></a></li>
-				    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
-				  </ul>
-				</div>
+	<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+	<div class="pure-menu pure-menu-open">
+	  <a class="pure-menu-heading" href="index.html">O.D.E.</a>
+	  <ul>
+	    <li><a href="index.html">Home</a></li>
+	    <li><a id="about" href="about.html"></a></li>
+	    <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+	  </ul>
+	</div>
       </div>
       <div id="main">
-				<div class="header">
-				    <h1>OpenDataExperiment</h1>
-				    <h3 id="header_h3"></h3>
-				    <h4 id="header_h4"></h4>
-				    <h5 id="header_h5"></h5>
-				</div>
-			<div id="content" class="content">
-			</div>
-		</div>
+	<div class="header">
+	    <h1>OpenDataExperiment</h1>
+	    <h3 id="header_h3"></h3>
+	    <h5 id="header_h5"></h5>
 	</div>
+	<div id="content" class="content"></div>
+      </div>
+    </div>
 <!-- to be included always - end -->
-  	<div id="core">
-  		<div id="legend"></div>
-  		<div id="plus">
-  			<div class="plus_widget">
-  				<div class="g-person" data-width="450" data-href="//plus.google.com/u/0/109344146425894173692" data-showcoverphoto="true" data-rel="author"></div>
-  			</div>
-  			<div class="plus_widget">
-  				<div class="g-person plus_widget" data-width="450" data-href="//plus.google.com/u/0/104954524097130358596" data-showcoverphoto="true" data-rel="author"></div>
-  			</div>
-  			<script type="text/javascript">
-	  window.___gcfg = {lang: 'it'};
-
-	  (function() {
-		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		po.src = 'https://apis.google.com/js/platform.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	  })();
-	</script>
-  			
-  		</div>
-	  </div>
-	  
-	  <!-- to be included always - start -->
-  	<script src="js/core.js"></script>
-  	<script src="js/ui.js"></script>
-			<!-- to be included always - end -->
-	  <!-- localization labels map - start -->  
+    <div id="core">
+      <div id="legend"></div>
+      <div id="header_h4">The BeardTeam: <a href="https://github.com/BeardTeam">https://github.com/BeardTeam</a></div>
+      <div id="plus">
+	<div class="plus_widget">
+		<div class="g-person" data-width="450" data-href="//plus.google.com/u/0/109344146425894173692" data-showcoverphoto="true" data-rel="author"></div>
+	</div>
+	<div class="plus_widget">
+		<div class="g-person plus_widget" data-width="450" data-href="//plus.google.com/u/0/104954524097130358596" data-showcoverphoto="true" data-rel="author"></div>
+	</div>
 	  <script type="text/javascript">
-	  	var labelsMap = {
-					it: {
-					  "header_h3": "About Us",
-					  "header_h4": "",
-					  "legend": ""
-					},
-					'default': {
-						"header_h3": "About Us",
-						"header_h4": "",
-				  "legend": ""
-					}
-	   }
-	   setTranslateLabels(getLanguage(),labelsMap);
+	    window.___gcfg = {lang: 'it'};
+
+	    (function() {
+		  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		  po.src = 'https://apis.google.com/js/platform.js';
+		  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	    })();
 	  </script>
+	</div>
+      </div>
+      <!-- to be included always - start -->
+      <script src="js/core.js"></script>
+      <script src="js/ui.js"></script>
+      <!-- to be included always - end -->
+      <!-- localization labels map - start -->  
+      <script type="text/javascript">
+	var labelsMap = {
+	  it: {
+	    "header_h3": "Chi siamo",
+	    "legend": ""
+	  },
+	  'default': {
+	    "header_h3": "About Us",
+	    "legend": ""
+	  }
+	}
+	setTranslateLabels(getLanguage(),labelsMap);
+      </script>
 <!-- localization labels map - end -->
-	  
+
   </body>
 </html>
