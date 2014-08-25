@@ -2,7 +2,8 @@
 * Copyleft (c) 2014, "The BeardTeam" - https://github.com/BeardTeam/
 * This file (ajaxJsonLoader.js) is part of ipc-d3, 
 * 	and developed by: Antonio Notarangelo - 
-* 	<progsoul91@gmail.com> - https://plus.google.com/+AntonioNotarangelo91.
+* 	<progsoul91@gmail.com> - https://plus.google.com/+AntonioNotarangelo91
+* 	as part of https://github.com/BeardTeam/opendata-experiments
 * 
 *     ajaxJsonLoader.js is free software: you can redistribute it and/or modify
 *     it under the terms of the GNU General Public License as published by

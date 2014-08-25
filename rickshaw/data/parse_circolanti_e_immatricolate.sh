@@ -1,3 +1,4 @@
+# Copyleft 2014 - Massimiliano Leone <maximilianus@gmail.com> - GPL license
 #!/bin/bash
 
 

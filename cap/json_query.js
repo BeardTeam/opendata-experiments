@@ -1,9 +1,10 @@
-/*******************************************************************************
+/**
 *Copyleft (c) 2014, "The BeardTeam" - https://github.com/BeardTeam/
 *
 *This file (json_query.js) is part of ipc-d3,
 *	and developed by Massimiliano Leone
 *	<maximilianus@gmail.com> - http://plus.google.com/+MassimilianoLeone
+* 	as part of https://github.com/BeardTeam/opendata-experiments
 *
 *    json_query.js is free software: you can redistribute it and/or modify
 *    it under the terms of the GNU General Public License as published by
@@ -18,9 +19,7 @@
 *    You should have received a copy of the GNU General Public License
 *    along with .  If not, see <http://www.gnu.org/licenses/>.
  ******************************************************************************/
-/**
- * 
- */
+
 
 //var nameFileWithPathWithoutExtension = "data_totale_camelized_some_fields";
 var nameFileWithPathWithoutExtension = "data_totale_camelized_some_fields";
