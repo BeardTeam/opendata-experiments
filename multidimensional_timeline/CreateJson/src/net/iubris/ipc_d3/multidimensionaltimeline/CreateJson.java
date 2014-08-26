@@ -1,5 +1,6 @@
 /*******************************************************************************
- * Copyleft (c) 2014, "Massimiliano Leone - <maximilianus@gmail.com> - https://plus.google.com/+MassimilianoLeone"
+ * Copyleft (c) 2014, "Massimiliano Leone 
+ * <maximilianus@gmail.com> - https://plus.google.com/+MassimilianoLeone"
  * This file (CreateJson.java) is part of CreateJson.
  * 
  *     CreateJson.java is free software: you can redistribute it and/or modify

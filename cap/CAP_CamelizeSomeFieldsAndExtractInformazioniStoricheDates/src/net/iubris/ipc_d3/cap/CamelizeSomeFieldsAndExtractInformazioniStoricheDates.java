@@ -1,5 +1,6 @@
 /*******************************************************************************
- * Copyleft (c) 2014, "Massimiliano Leone - <maximilianus@gmail.com> - https://plus.google.com/+MassimilianoLeone"
+ * Copyleft (c) 2014, "Massimiliano Leone 
+ * <maximilianus@gmail.com> - https://plus.google.com/+MassimilianoLeone"
  * This file (CamelizeSomeFieldsAndExtractInformazioniStoricheDates.java) is part of CAP_CamelizeFields.
  * 
  *     CamelizeSomeFieldsAndExtractInformazioniStoricheDates.java is free software: you can redistribute it and/or modify
