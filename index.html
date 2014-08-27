@@ -42,11 +42,12 @@ This file (index.html) is part of ipc-d3,
 }
 
 #github {
-		clear: both;
-		float: left;
 		margin: 2em;
 }
-
+#github,#data,#browsertip {
+		clear: both;
+		float: left;
+}
 #github_text {
 		margin-top: 15px;
 }
@@ -54,8 +55,12 @@ This file (index.html) is part of ipc-d3,
 		clear: none;
 		float: left;
 }
-#data_label: {
-		font-weight: bold;
+#data_label: {	
+   font-weight: bold;
+}
+#browsertip: {
+   font-style: italic;
+   font-size: small;
 }
 
 </style>
@@ -113,6 +118,7 @@ This file (index.html) is part of ipc-d3,
 						href='https://github.com/BeardTeam/opendata-experiments'>https://github.com/BeardTeam/opendata-experiments</a>
 				</div>
 			</div>
+         <div id="browsertip"></div>
 		</div>
 		<a href="https://github.com/BeardTeam/opendata-experiments"><img
 			style="position: absolute; top: 0; right: 0; border: 0;"
@@ -132,10 +138,11 @@ This file (index.html) is part of ipc-d3,
 				"header_h3" : "",
 				"header_h4" : "",
 				"intro_h2" : "<p>Qualche esperimento con D3, RickShaw e Google Charts.<p/><p></p>",
-				"intro_h3" : "<p>Sarà illustrato come da dati grezzi si possa ottenere una visualizzazione ricca,<br/>"
-						+ "che permetta un'analisi più intuitiva (e leggibile) dell'usuale forma a tabella.</p>",
+				"intro_h3" : "<p>Sar&agrave illustrato come da dati grezzi si possa ottenere una visualizzazione ricca,<br/>"
+						+ "che permetta un'analisi pi&ugrave intuitiva (e leggibile) dell'usuale forma a tabella.</p>",
 				"data_label" : "<b>I dati usati provengono da: </b>",
-				"github_label" : "Il codice sorgente è disponibile presso github<br/>"
+				"github_label" : "Il codice sorgente &egrave disponibile presso github<br/>",
+            "browsertip": "<i>&Egrave consigliabile l'utilizzo del browser Chrome/Chromium per una migliore fruizione dei contenuti</i>"
 			},
 			'default' : {
 				"header_h3" : "",
@@ -145,7 +152,8 @@ This file (index.html) is part of ipc-d3,
 						+ "allowing a more intuitive analysis than (unreadeable) table form.</p>"
 						+ "<p>Choice any link from side panel and have fun!</p>",
 				"data_label" : "<b>Data used come from: </b>",
-				"github_label" : "You can easily browse code at github<br/>"
+				"github_label" : "You can easily browse code at github<br/>",
+            "browsertip": "<i>We recommend Chrome/Chromium browser for better navigation</i>"
 			}
 		}
 		setTranslateLabels(getLanguage(), labelsMap);
