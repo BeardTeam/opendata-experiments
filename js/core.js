@@ -67,21 +67,18 @@ function getLanguage() {
 function setTranslateLabels(language,labelsMap) {
 	switch(language) {
 	  case "it":
-
-	    if (labelsMap !== undefined)
+	    if (labelsMap !== undefined) {
 	      applyLabels(labelsMap.it);
-
-	    jQuery("#about").html("Informazioni");
-	    
+	    }
+	    jQuery("#about").html("Informazioni");	    
 	    break;
 	  default:
 	//     var defaultLabels = labelsMap.default;		  
 	    if (labelsMap !== undefined) {
 //	    	console.log(labelsMap['default']);
 	    	applyLabels(labelsMap['default']);
-	    }
-	    
-	  	document.getElementById("about").innerHTML = "About";
+	    }	    
+	    document.getElementById("about").innerHTML = "About";
 	    jQuery("#about").html("About");
 	    break;
 	}
