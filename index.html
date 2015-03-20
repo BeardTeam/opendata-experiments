@@ -27,8 +27,7 @@ This file (index.html) is part of ipc-d3,
 <link rel="stylesheet" href="css/side-menu.css"></link>
 <!-- 	to be included always - end -->
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
 <style>
 #intro {
@@ -55,15 +54,9 @@ This file (index.html) is part of ipc-d3,
 #github {
   margin: 2em;
 }
-<<<<<<< HEAD
-#github,#data,#browsertip,#presentation {
-		clear: both;
-		float: left;
-=======
-#github,#data,#disclaimer {
+#github,#data,#browsertip,#presentation,#disclaimer {
   float: left;
-  clear: both;  
->>>>>>> 6d8f849786a998799b9ce3d4efcbd7b777fc40d3
+  clear: both;
 }
 #github_text {
   margin-top: 15px;
@@ -80,156 +73,92 @@ This file (index.html) is part of ipc-d3,
 </style>
 </head>
 <body>
-	<!-- to be included always - start -->
-	<div id="layout">
-		<div id="menu">
-			<a href="#menu" id="menuLink" class="menu-link"><span></span></a>
-			<div class="pure-menu pure-menu-open">
-				<a class="pure-menu-heading" href="index.html">O.D.E.</a>
-				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a id="about" href="about.html"></a></li>
-					<li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
-				</ul>
-			</div>
-		</div>
-		<div id="main">
-			<div class="header">
-				<h1>OpenDataExperiment</h1>
-				<h3 id="header_h3"></h3>
-				<h4 id="header_h4"></h4>
-				<h5 id="header_h5"></h5>
-			</div>
-			<div id="content" class="content"></div>
-		</div>
+  <!-- to be included always - start -->
+  <div id="layout">
+    <div id="menu">
+      <a href="#menu" id="menuLink" class="menu-link"><span></span></a>
+      <div class="pure-menu pure-menu-open">
+	<a class="pure-menu-heading" href="index.html">O.D.E.</a>
+	<ul>
+	  <li><a href="index.html">Home</a></li>
+	  <li><a id="about" href="about.html"></a></li>
+	  <li id="menu_li" class="menu-item-divided pure-menu-selected"></li>
+	</ul>
+      </div>
+    </div>
+    <div id="main">
+      <div class="header">
+	<h1>OpenDataExperiment</h1>
+	<h3 id="header_h3"></h3>
+	<h4 id="header_h4"></h4>
+	<h5 id="header_h5"></h5>
+      </div>
+      <div id="content" class="content"></div>
+    </div>
+  </div>
+  <!-- to be included always - end -->
+  <div id="core">
+    <div id="intro">
+      <h2 id="intro_h2"></h2>
+      <h3 id="intro_h3"></h3>
+      <div id="data">
+	<div id="data_label"></div>
+	<div id="palermo" class="data_img">
+	  <a href="http://www.comune.palermo.it/opendata.php"><img src="hdr_opendata.jpg" width="240" height="60"/></a>
 	</div>
-	<!-- to be included always - end -->
-	<div id="core">
-		<div id="intro">
-<<<<<<< HEAD
-			<h2 id="intro_h2"></h2>
-			<h3 id="intro_h3"></h3>
-			<div id="data">
-				<div id="data_label"></div>
-				<div id="palermo" class="data_img">
-					<a href="http://www.comune.palermo.it/opendata.php"> 
-						<img src="hdr_opendata.jpg" width="240" height="60" />
-					</a>
-				</div>
-				<div id="istat" class="data_img" style="margin-left:1em;">
-					<a href="http://www.istat.it/it/istituto-nazionale-di-statistica/attività/open-data">
-						<img src="istat.png" />
-					</a>
-				</div>
-			</div>
-			<div style="margin-top:30px" id="presentation"></div>
-			<div id="github">
-				<a class="github"
-					href='https://github.com/BeardTeam/opendata-experiments'> <img
-					width=120 height=80 src='Octocat.jpg' />
-				</a>
-				<div id="github_text" class="github">
-					<div id="github_label"></div>
-					<a id="github_a"
-						href='https://github.com/BeardTeam/opendata-experiments'>https://github.com/BeardTeam/opendata-experiments</a>
-				</div>
-			</div>
-         <div id="browsertip"></div>
-=======
-		  <h2 id="intro_h2"></h2>
-		  <h3 id="intro_h3"></h3>
-		  <div id="data">
-		    <div id="data_label"></div>
-		    <div id="palermo" class="data_img">
-		      <a href="http://www.comune.palermo.it/opendata.php"> 
-			      <img src="hdr_opendata.jpg" width="240" height="60" />
-		      </a>
-		    </div>
-		    <div id="istat" class="data_img" style="margin-left:1em;">
-		      <a href="http://www.istat.it/it/istituto-nazionale-di-statistica/attività/open-data">
-			      <img src="istat.png" />
-		      </a>
-		    </div>
-		  </div>
-		  <div id="github">
-		    <a class="github" href='https://github.com/BeardTeam/opendata-experiments'>
-			    <img width=120 height=80 src='Octocat.jpg' />
-		    </a>
-		    <div id="github_text" class="github">
-		      <div id="github_label"></div>
-			<a id="github_a" href='https://github.com/BeardTeam/opendata-experiments'>https://github.com/BeardTeam/opendata-experiments</a>
-		    </div>
-		  </div>
-		  <div id="disclaimer"></div>
-		  <div id="tip"></div>
->>>>>>> 6d8f849786a998799b9ce3d4efcbd7b777fc40d3
-		</div>
-		<a href="https://github.com/BeardTeam/opendata-experiments"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+	<div id="istat" class="data_img" style="margin-left:1em;">
+	  <a href="http://www.istat.it/it/istituto-nazionale-di-statistica/attività/open-data"><img src="istat.png"/></a>
 	</div>
+      </div>
+      <div id="github">
+	<a class="github" href='https://github.com/BeardTeam/opendata-experiments'><img width=120 height=80 src='Octocat.jpg' /></a>
+	<div id="github_text" class="github">
+	  <div id="github_label"></div>
+	  <a id="github_a" href='https://github.com/BeardTeam/opendata-experiments'>https://github.com/BeardTeam/opendata-experiments</a>
+	</div>
+      </div>
+      <div style="margin-top: 20px;" id="presentation"></div>
+      <div style="margin-top: 20px;" id="disclaimer"></div>
+      <div style="margin-top: 20px;" id="browsertip"></div>
+    </div>
+    <a href="https://github.com/BeardTeam/opendata-experiments"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+  </div>
 
-	<!-- to be included always - start -->
-	<script src="js/core.js"></script>
-	<script src="js/ui.js"></script>
-	<!-- to be included always - end -->
-	<!-- localization labels map - start -->
-	<script type="text/javascript">
-<<<<<<< HEAD
-		var labelsMap = {
-			it : {
-				"header_h3" : "",
-				"header_h4" : "",
-				"intro_h2" : "<p>Qualche esperimento con D3, RickShaw e Google Charts.<p/><p></p>",
-				"intro_h3" : "<p>Sar&agrave illustrato come da dati grezzi si possa ottenere una visualizzazione ricca,<br/>"
-						+ "che permetta un'analisi pi&ugrave intuitiva (e leggibile) dell'usuale forma a tabella.</p>",
-				"data_label" : "<b>I dati usati provengono da: </b>",
-				"github_label" : "Il codice sorgente &egrave disponibile presso github<br/>",
-				"presentation" : "Una presentazione sulla teoria e tecniche di manipolazione dei dati è disponibile qui: <a href='https://prezi.com/j6hgcjtcghcn/raccolta-manipolazione-e-rappresentazione-dei-dati'>https://prezi.com/j6hgcjtcghcn/raccolta-manipolazione-e-rappresentazione-dei-dati</a>",
-				"browsertip": "<i>&Egrave consigliabile l'utilizzo del browser Chrome/Chromium per una migliore fruizione dei contenuti</i>"
-			},
-			'default' : {
-				"header_h3" : "",
-				"header_h4" : "",
-				"intro_h2" : "<p>Some experiments using D3.js, RickShaw and Google Charts</p>",
-				"intro_h3" : "<p>We'll show as raw data can give you a powerful visualization,<br/>"
-						+ "allowing a more intuitive analysis than (unreadeable) table form.</p>"
-						+ "<p>Choice any link from side panel and have fun!</p>",
-				"data_label" : "<b>Data used come from: </b>",
-				"github_label" : "You can easily browse code at github<br/>",
-				"presentation": "A presentation about theory and data manipulation techniques is available here (in italian): <a href='https://prezi.com/j6hgcjtcghcn/raccolta-manipolazione-e-rappresentazione-dei-dati'>https://prezi.com/j6hgcjtcghcn/raccolta-manipolazione-e-rappresentazione-dei-dati</a>",
-				"browsertip": "<i>We recommend Chrome/Chromium browser for better navigation</i>"
-			}
-		}
-		setTranslateLabels(getLanguage(), labelsMap);
-=======
-	  var labelsMap = {
-	    it : {
-	      "header_h3" : "",
-	      "header_h4" : "",
-	      "intro_h2" : "<p>Qualche esperimento con D3, RickShaw e Google Charts.<p/><p></p>",
-	      "intro_h3" : "<p>Sar&agrave illustrato come da dati grezzi si possa ottenere una visualizzazione ricca,<br/>"
-			      + "che permetta un'analisi pi&ugrave intuitiva (e leggibile) dell'usuale forma a tabella.</p>",
-	      "data_label" : "<b>I dati usati provengono da: </b>",
-	      "github_label" : "Il codice sorgente &egrave disponibile presso github<br/>",
-	      "disclaimer": "<i>Il presente software è fornito senza alcuna garanzia;<br/>dove non diversamente dichiarato, il codice sorgente &egrave rilasciato con licenza GPLv3.</i>",
-	      "tip": "<i>&Egrave consigliabile l'utilizzo del browser Chrome/Chromium per una migliore fruizione dei contenuti</i>"
-	    },
-	    'default' : {
-	      "header_h3" : "",
-	      "header_h4" : "",
-	      "intro_h2" : "<p>Some experiments using D3.js, RickShaw and Google Charts</p>",
-	      "intro_h3" : "<p>We'll show as raw data can give you a powerful visualization,<br/>"
-		  + "allowing a more intuitive analysis than (unreadeable) table form.</p>"
-		  + "<p>Choice any link from side panel and have fun!</p>",
-	      "data_label" : "<b>Data used come from: </b>",
-	      "github_label" : "You can easily browse code at github<br/>",
-	      "disclaimer": "<i>This work is provided without any warranty;<br/>where not otherwise declared, all source codes are released under GPLv3 license.</i>",
-	      "tip": "<i>We recommend Chrome/Chromium browser for better navigation</i>"
-	      }
-	  }
-	  setTranslateLabels(getLanguage(), labelsMap);
->>>>>>> 6d8f849786a998799b9ce3d4efcbd7b777fc40d3
-	</script>
-	<!-- localization labels map - end -->
-
+  <!-- to be included always - start -->
+  <script src="js/core.js"></script>
+  <script src="js/ui.js"></script>
+  <!-- to be included always - end -->
+  <!-- localization labels map - start -->
+  <script type="text/javascript">
+    var labelsMap = {
+      it : {
+	"header_h3" : "",
+	"header_h4" : "",
+	"intro_h2" : "<p>Qualche esperimento con D3, RickShaw e Google Charts.<p/><p></p>",
+	"intro_h3" : "<p>Sar&agrave illustrato come da dati grezzi si possa ottenere una visualizzazione ricca,<br/>"
+			+ "che permetta un'analisi pi&ugrave intuitiva (e leggibile) dell'usuale forma a tabella.</p>",
+	"data_label" : "<b>I dati usati provengono da: </b>",
+	"github_label" : "Il codice sorgente &egrave disponibile presso github<br/>",
+	"presentation" : "Una presentazione sulla teoria e tecniche di manipolazione dei dati è disponibile qui: <a href='https://prezi.com/j6hgcjtcghcn/raccolta-manipolazione-e-rappresentazione-dei-dati'>https://prezi.com/j6hgcjtcghcn/raccolta-manipolazione-e-rappresentazione-dei-dati</a>",
+	"disclaimer": "<i>Il presente software è fornito senza alcuna garanzia;<br/>dove non diversamente dichiarato, il codice sorgente &egrave rilasciato con licenza GPLv3.</i>",
+	"browsertip": "<i>&Egrave consigliabile l'utilizzo del browser Chrome/Chromium per una migliore fruizione dei contenuti</i>"
+      },
+      'default' : {
+	"header_h3" : "",
+	"header_h4" : "",
+	"intro_h2" : "<p>Some experiments using D3.js, RickShaw and Google Charts</p>",
+	"intro_h3" : "<p>We'll show as raw data can give you a powerful visualization,<br/>"
+			+ "allowing a more intuitive analysis than (unreadeable) table form.</p>"
+			+ "<p>Choice any link from side panel and have fun!</p>",
+	"data_label" : "<b>Data used come from: </b>",
+	"github_label" : "You can easily browse code at github<br/>",
+	"presentation": "A presentation about theory and data manipulation techniques is available here (in italian): <a href='https://prezi.com/j6hgcjtcghcn/raccolta-manipolazione-e-rappresentazione-dei-dati'>https://prezi.com/j6hgcjtcghcn/raccolta-manipolazione-e-rappresentazione-dei-dati</a>",
+	"disclaimer": "<i>This work is provided without any warranty;<br/>where not otherwise declared, all source codes are released under GPLv3 license.</i>",
+	"browsertip": "<i>We recommend Chrome/Chromium browser for better navigation</i>"
+      }
+    }
+    setTranslateLabels(getLanguage(), labelsMap);
+  </script>
+  <!-- localization labels map - end -->
 </body>
 </html>
